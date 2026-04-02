@@ -295,89 +295,31 @@
     <div class="section-title">施工実績</div>
     <div class="divider"></div>
   </div>
-  <div class="works-grid">
-    <div class="work-card">
-      <div class="work-img" style="background:#0d1f14; padding:0;">
-        <img src="20251202_163239.jpg" alt="(緊)橋りょう修繕工事(沙羅ノ樹橋床版補修工)" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="work-info">
-        <div class="work-category">Bridge</div>
-        <div class="work-title">（緊）橋りょう修繕工事（沙羅ノ樹橋床版補修工）</div>
-        <div class="work-meta">埼玉県 ／ 令和8年竣工</div>
-      </div>
-    </div>
-    <div class="work-card">
-      <div class="work-img" style="background:#0d1f14; padding:0;">
-        <img src="KSI00361.jpg" alt="舗装指定修繕工事(金沢工区)" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="work-info">
-        <div class="work-category">Road</div>
-        <div class="work-title">舗装指定修繕工事（金沢工区）</div>
-        <div class="work-meta">埼玉県 ／ 令和7年竣工</div>
-      </div>
-    </div>
-    <div class="work-card">
-      <div class="work-img" style="background:#0d1f14; padding:0;">
-        <img src="KSI00247.jpg" alt="上ノ山橋補修工" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="work-info">
-        <div class="work-category">Bridge</div>
-        <div class="work-title">橋りょう補修工事（上ノ山橋補修工）</div>
-        <div class="work-meta">埼玉県 ／ 令和6年竣工</div>
-      </div>
-    </div>
-    <div class="work-card">
-      <div class="work-img" style="background:#0d1f14; padding:0;">
-        <img src="生川完成.jpg" alt="生川山村生活安全対策工事" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="work-info">
-        <div class="work-category">Civil</div>
-        <div class="work-title">生川山村生活安全対策工事</div>
-        <div class="work-meta">埼玉県 ／ 令和5年竣工</div>
-      </div>
-    </div>
-    <div class="work-card">
-      <div class="work-img" style="background:#0d1f14; padding:0;">
-        <img src="KSI00406.jpg" alt="銅の入沢護岸整備工事" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="work-info">
-        <div class="work-category">River</div>
-        <div class="work-title">銅の入沢護岸整備工事</div>
-        <div class="work-meta">埼玉県 ／ 令和5年竣工</div>
-      </div>
-    </div>
-    <div class="work-card">
-      <div class="work-img" style="background:#0d1f14; padding:0;">
-        <img src="KSI00898.jpg" alt="砂防施設工事(金山沢流路工その1)" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="work-info">
-        <div class="work-category">Erosion Control</div>
-        <div class="work-title">砂防施設工事（金山沢流路工その１）</div>
-        <div class="work-meta">埼玉県 ／ 令和3年竣工</div>
-      </div>
-    </div>
-    <div class="work-card">
-      <div class="work-img" style="background:#0d1f14; padding:0;">
-        <img src="DSC_1571.JPG" alt="橋りょう修繕工事(栗谷瀬橋耐震補強工２工区)" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="work-info">
-        <div class="work-category">Bridge</div>
-        <div class="work-title">橋りょう修繕工事（栗谷瀬橋耐震補強工２工区）</div>
-        <div class="work-meta">埼玉県 ／ 平成29年竣工</div>
-      </div>
-    </div>
-    <div class="work-card">
-      <div class="work-img" style="background:#0d1f14; padding:0;">
-        <img src="DSCF1685.JPG" alt="地方特定道路(橋りょう維持)整備工事(秩父公園橋橋面舗装工)" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="work-info">
-        <div class="work-category">Road / Bridge</div>
-        <div class="work-title">地方特定道路（橋りょう維持）整備工事（秩父公園橋橋面舗装工）</div>
-        <div class="work-meta">埼玉県 ／ 平成27年竣工</div>
-      </div>
-    </div>
+  <div class="works-grid" id="works-grid">
+    <!-- 施工実績はworks.jsonから自動読み込み -->
   </div>
 </section>
+<script>
+  fetch('works.json')
+    .then(function(r){ return r.json(); })
+    .then(function(works){
+      var grid = document.getElementById('works-grid');
+      works.forEach(function(w){
+        grid.innerHTML +=
+          '<div class="work-card">' +
+            '<div class="work-img" style="background:#0d1f14; padding:0;">' +
+              '<img src="' + w.image + '" alt="' + w.title + '" style="width:100%;height:100%;object-fit:cover;display:block;">' +
+            '</div>' +
+            '<div class="work-info">' +
+              '<div class="work-category">' + w.category + '</div>' +
+              '<div class="work-title">' + w.title + '</div>' +
+              '<div class="work-meta">埼玉県 ／ ' + w.year + '</div>' +
+            '</div>' +
+          '</div>';
+      });
+    })
+    .catch(function(){ console.log('works.json の読み込みに失敗しました'); });
+</script>
 
 <section class="company" id="company">
   <div class="company-inner">
