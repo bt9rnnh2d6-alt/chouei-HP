@@ -160,24 +160,48 @@ if ($confirm -ne "y" -and $confirm -ne "Y") {
 
 # ========== ここから実際の処理 ==========
 
-# JSONファイルを安全に書き込む関数（アンチウイルス対策で最大5回リトライ）
-function Write-JsonSafe($path, $data) {
-    $json = $data | ConvertTo-Json -AsArray -Depth 5
+# index.html と works.json を安全に書き込む関数（最大5回リトライ）
+function Write-FileSafe($path, $content, $encoding) {
     $maxRetry = 5
     for ($i = 1; $i -le $maxRetry; $i++) {
         try {
-            [System.IO.File]::WriteAllText($path, $json, [System.Text.Encoding]::UTF8)
+            [System.IO.File]::WriteAllText($path, $content, $encoding)
             return $true
         } catch {
             if ($i -eq $maxRetry) {
-                Write-Host "エラー: works.json に書き込めませんでした。" -ForegroundColor Red
-                Write-Host "アンチウイルスソフトがブロックしている可能性があります。" -ForegroundColor Red
-                Write-Host "スクリプトをアンチウイルスの除外リストに追加してください。" -ForegroundColor Yellow
+                Write-Host "エラー: $path に書き込めませんでした。" -ForegroundColor Red
+                Write-Host "アンチウイルスソフトがブロックしている可能性があります。" -ForegroundColor Yellow
                 return $false
             }
             Start-Sleep -Milliseconds 500
         }
     }
+}
+
+# index.html の worksData を更新する関数
+function Update-IndexHtml($works) {
+    $htmlPath = Join-Path $scriptDir "index.html"
+    $html = [System.IO.File]::ReadAllText($htmlPath, [System.Text.Encoding]::UTF8)
+
+    # 新しいworksDataブロックを生成
+    $lines = @("  var worksData = [")
+    foreach ($w in $works) {
+        $img   = $w.image -replace '"','\"'
+        $cat   = $w.category -replace '"','\"'
+        $title = $w.title -replace '"','\"'
+        $year  = $w.year -replace '"','\"'
+        $lines += "    { image: `"$img`", category: `"$cat`", title: `"$title`", year: `"$year`" },"
+    }
+    # 末尾カンマを削除
+    $lines[-1] = $lines[-1].TrimEnd(',')
+    $lines += "  ];"
+    $newBlock = $lines -join "`r`n"
+
+    # 既存のworksDataブロックを置換
+    $pattern = '(?s)  var worksData = \[.*?\];'
+    $html = [System.Text.RegularExpressions.Regex]::Replace($html, $pattern, $newBlock)
+
+    return Write-FileSafe $htmlPath $html ([System.Text.Encoding]::UTF8)
 }
 
 if ($mode -eq "1") {
@@ -188,24 +212,37 @@ if ($mode -eq "1") {
         year     = $year
     }
     $works += $newEntry
-    $result = Write-JsonSafe $jsonPath $works
-    if (-not $result) { Read-Host "Enterキーで終了"; exit }
+
+    # works.json を更新
+    $json = $works | ConvertTo-Json -AsArray -Depth 5
+    $r1 = Write-FileSafe $jsonPath $json ([System.Text.Encoding]::UTF8)
+
+    # index.html を更新
+    $r2 = Update-IndexHtml $works
+
+    if (-not $r1 -or -not $r2) { Read-Host "Enterキーで終了"; exit }
     Write-Host ""
-    Write-Host "✓ works.json を更新しました。" -ForegroundColor Green
+    Write-Host "✓ index.html と works.json を更新しました。" -ForegroundColor Green
 }
 
 if ($mode -eq "2") {
-    $works = $works | Where-Object { $_ -ne $target }
-    if (-not $works) { $works = @() }
-    $result = Write-JsonSafe $jsonPath @($works)
-    if (-not $result) { Read-Host "Enterキーで終了"; exit }
+    $works = @($works | Where-Object { $_ -ne $target })
 
     if ($delFile -eq "y" -or $delFile -eq "Y") {
         $imagePath = Join-Path $scriptDir $target.image
         if (Test-Path $imagePath) { Remove-Item $imagePath -Force }
     }
+
+    # works.json を更新
+    $json = $works | ConvertTo-Json -AsArray -Depth 5
+    $r1 = Write-FileSafe $jsonPath $json ([System.Text.Encoding]::UTF8)
+
+    # index.html を更新
+    $r2 = Update-IndexHtml $works
+
+    if (-not $r1 -or -not $r2) { Read-Host "Enterキーで終了"; exit }
     Write-Host ""
-    Write-Host "✓ works.json を更新しました。" -ForegroundColor Green
+    Write-Host "✓ index.html と works.json を更新しました。" -ForegroundColor Green
 }
 
 
