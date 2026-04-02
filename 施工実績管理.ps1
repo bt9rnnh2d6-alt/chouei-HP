@@ -85,6 +85,12 @@ if ($mode -eq "1") {
     if ($catSel -eq "7") { $category = Read-Host "カテゴリ名を入力してください（英語）" }
     else                 { $category = $categoryMap[$catSel] }
 
+    Write-Host ""
+    $town   = Read-Host "市町村名を入力してください（例：秩父郡長瀞町）"
+    Write-Host ""
+    $client = Read-Host "発注者を入力してください（例：埼玉県)"
+    Write-Host ""
+
     $commitMsg = "施工実績を追加: $title ($year)"
 }
 
@@ -130,6 +136,8 @@ if ($mode -eq "1") {
     Write-Host "  操作    : 追加" -ForegroundColor White
     Write-Host "  画像    : works/$selectedImage"
     Write-Host "  工事名  : $title"
+    Write-Host "  市町村名: $town"
+    Write-Host "  発注者  : $client"
     Write-Host "  竣工年度: $year"
     Write-Host "  カテゴリ: $category"
 } else {
@@ -178,30 +186,36 @@ function Write-FileSafe($path, $content, $encoding) {
     }
 }
 
-# index.html の worksData を更新する関数
-function Update-IndexHtml($works) {
-    $htmlPath = Join-Path $scriptDir "index.html"
-    $html = [System.IO.File]::ReadAllText($htmlPath, [System.Text.Encoding]::UTF8)
-
-    # 新しいworksDataブロックを生成
+# worksDataブロックの文字列を生成する関数
+function Build-WorksDataBlock($works) {
     $lines = @("  var worksData = [")
     foreach ($w in $works) {
-        $img   = $w.image -replace '"','\"'
-        $cat   = $w.category -replace '"','\"'
-        $title = $w.title -replace '"','\"'
-        $year  = $w.year -replace '"','\"'
-        $lines += "    { image: `"$img`", category: `"$cat`", title: `"$title`", year: `"$year`" },"
+        $img    = $w.image    -replace '"','\"'
+        $cat    = $w.category -replace '"','\"'
+        $ttl    = $w.title    -replace '"','\"'
+        $yr     = $w.year     -replace '"','\"'
+        $twn    = if ($w.town)   { $w.town   -replace '"','\"' } else { "" }
+        $cli    = if ($w.client) { $w.client -replace '"','\"' } else { "" }
+        $lines += "    { image: `"$img`", category: `"$cat`", title: `"$ttl`", year: `"$yr`", town: `"$twn`", client: `"$cli`" },"
     }
-    # 末尾カンマを削除
     $lines[-1] = $lines[-1].TrimEnd(',')
     $lines += "  ];"
-    $newBlock = $lines -join "`r`n"
+    return $lines -join "`r`n"
+}
 
-    # 既存のworksDataブロックを置換
-    $pattern = '(?s)  var worksData = \[.*?\];'
-    $html = [System.Text.RegularExpressions.Regex]::Replace($html, $pattern, $newBlock)
+# index.html と work-detail.html の worksData を同時更新する関数
+function Update-HtmlFiles($works) {
+    $newBlock = Build-WorksDataBlock $works
+    $pattern  = '(?s)  var worksData = \[.*?\];'
 
-    return Write-FileSafe $htmlPath $html ([System.Text.Encoding]::UTF8)
+    foreach ($fileName in @("index.html", "work-detail.html")) {
+        $htmlPath = Join-Path $scriptDir $fileName
+        $html = [System.IO.File]::ReadAllText($htmlPath, [System.Text.Encoding]::UTF8)
+        $html = [System.Text.RegularExpressions.Regex]::Replace($html, $pattern, $newBlock)
+        $result = Write-FileSafe $htmlPath $html ([System.Text.Encoding]::UTF8)
+        if (-not $result) { return $false }
+    }
+    return $true
 }
 
 if ($mode -eq "1") {
@@ -210,6 +224,8 @@ if ($mode -eq "1") {
         category = $category
         title    = $title
         year     = $year
+        town     = $town
+        client   = $client
     }
     $works += $newEntry
 
@@ -218,7 +234,7 @@ if ($mode -eq "1") {
     $r1 = Write-FileSafe $jsonPath $json ([System.Text.Encoding]::UTF8)
 
     # index.html を更新
-    $r2 = Update-IndexHtml $works
+    $r2 = Update-HtmlFiles $works
 
     if (-not $r1 -or -not $r2) { Read-Host "Enterキーで終了"; exit }
     Write-Host ""
@@ -238,7 +254,7 @@ if ($mode -eq "2") {
     $r1 = Write-FileSafe $jsonPath $json ([System.Text.Encoding]::UTF8)
 
     # index.html を更新
-    $r2 = Update-IndexHtml $works
+    $r2 = Update-HtmlFiles $works
 
     if (-not $r1 -or -not $r2) { Read-Host "Enterキーで終了"; exit }
     Write-Host ""

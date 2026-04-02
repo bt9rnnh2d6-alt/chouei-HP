@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>施工実績詳細 | 長栄建設株式会社</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700;900&family=Shippori+Mincho:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0e2218;
+    --navy-mid: #162d20;
+    --green: #52c483;
+    --green-light: #80dba8;
+    --white: #e8f5ee;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Serif JP', serif; background: var(--navy); color: var(--white); min-height: 100vh; }
+
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 60px;
+    background: rgba(10,26,16,0.97);
+    backdrop-filter: blur(2px);
+  }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 0.3em; color: var(--green); text-transform: uppercase; }
+  .nav-logo span { display: block; font-family: 'Shippori Mincho', serif; font-size: 18px; letter-spacing: 0.1em; color: var(--white); }
+
+  .detail-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 140px 40px 80px;
+  }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    text-decoration: none;
+    margin-bottom: 48px;
+    transition: opacity 0.3s;
+  }
+  .back-btn:hover { opacity: 0.7; }
+  .back-btn::before { content: '←'; }
+
+  .detail-category {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 0.4em;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .detail-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  .detail-img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 48px;
+    border: 1px solid rgba(46,158,98,0.2);
+  }
+
+  .detail-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .detail-table tr {
+    border-bottom: 1px solid rgba(46,158,98,0.15);
+  }
+  .detail-table th {
+    width: 160px;
+    padding: 20px 0;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: 0.1em;
+    text-align: left;
+    vertical-align: top;
+  }
+  .detail-table td {
+    padding: 20px 0 20px 32px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(232,245,238,0.90);
+  }
+
+  .not-found {
+    text-align: center;
+    padding: 80px 0;
+    color: rgba(232,245,238,0.5);
+    font-size: 16px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 12px;
+    color: rgba(232,245,238,0.3);
+    letter-spacing: 0.1em;
+    border-top: 1px solid rgba(46,158,98,0.1);
+    margin-top: 80px;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .detail-wrap { padding: 120px 24px 60px; }
+    .detail-title { font-size: 20px; }
+    .detail-table th { width: 110px; font-size: 12px; }
+    .detail-table td { padding-left: 16px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" style="text-decoration:none;">
+    <div class="nav-logo">CHOEI CONSTRUCTION<span>長栄建設株式会社</span></div>
+  </a>
+</nav>
+
+<div class="detail-wrap">
+  <a href="index.html#works" class="back-btn">施工実績一覧に戻る</a>
+  <div id="detail-content"></div>
+</div>
+
+<footer>© 長栄建設株式会社. All Rights Reserved.</footer>
+
+<script>
+  /* ===== 施工実績データ（index.htmlと同じ） ===== */
+  var worksData = [
+    { image: "works/20251202_163239.jpg", category: "Bridge", title: "（緊）橋りょう修繕工事（沙羅ノ樹橋床版補修工）", year: "令和8年竣工", town: "", client: "" },
+    { image: "works/KSI00361.jpg", category: "Road", title: "舗装指定修繕工事（金沢工区）", year: "令和7年竣工", town: "", client: "" },
+    { image: "works/KSI00133.jpg", category: "Road", title: "皆野寄居有料道路　釜伏トンネル路面切削工事", year: "令和7年竣工", town: "", client: "" },
+    { image: "works/KSI00247.jpg", category: "Bridge", title: "橋りょう補修工事（上ノ山橋補修工）", year: "令和6年竣工", town: "", client: "" },
+    { image: "works/生川完成.jpg", category: "Civil", title: "生川山村生活安全対策工事", year: "令和5年竣工", town: "", client: "" },
+    { image: "works/KSI00406.jpg", category: "River", title: "銅の入沢護岸整備工事", year: "令和5年竣工", town: "", client: "" },
+    { image: "works/KSI00898.jpg", category: "Erosion Control", title: "砂防施設工事（金山沢流路工その１）", year: "令和3年竣工", town: "", client: "" },
+    { image: "works/DSC_1571.JPG", category: "Bridge", title: "橋りょう修繕工事（栗谷瀬橋耐震補強工２工区）", year: "平成29年竣工", town: "", client: "" },
+    { image: "works/DSCF1685.JPG", category: "Road / Bridge", title: "地方特定道路（橋りょう維持）整備工事（秩父公園橋橋面舗装工）", year: "平成27年竣工", town: "", client: "" }
+  ];
+  /* ============================================= */
+
+  var params = new URLSearchParams(window.location.search);
+  var id = parseInt(params.get('id'));
+  var content = document.getElementById('detail-content');
+
+  if (isNaN(id) || id < 0 || id >= worksData.length) {
+    content.innerHTML = '<div class="not-found">施工実績が見つかりませんでした。</div>';
+  } else {
+    var w = worksData[id];
+    document.title = w.title + ' | 長栄建設株式会社';
+
+    var rows = '';
+    rows += '<tr><th>工事名</th><td>' + w.title + '</td></tr>';
+    if (w.town)   rows += '<tr><th>市町村名</th><td>' + w.town + '</td></tr>';
+    if (w.client) rows += '<tr><th>発注者</th><td>' + w.client + '</td></tr>';
+    rows += '<tr><th>竣工年度</th><td>' + w.year + '</td></tr>';
+    rows += '<tr><th>工種</th><td>' + w.category + '</td></tr>';
+
+    content.innerHTML =
+      '<div class="detail-category">' + w.category + '</div>' +
+      '<h1 class="detail-title">' + w.title + '</h1>' +
+      '<img class="detail-img" src="' + w.image + '" alt="' + w.title + '">' +
+      '<table class="detail-table">' + rows + '</table>';
+  }
+</script>
+
+</body>
+</html>
