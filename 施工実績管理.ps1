@@ -160,6 +160,26 @@ if ($confirm -ne "y" -and $confirm -ne "Y") {
 
 # ========== ここから実際の処理 ==========
 
+# JSONファイルを安全に書き込む関数（アンチウイルス対策で最大5回リトライ）
+function Write-JsonSafe($path, $data) {
+    $json = $data | ConvertTo-Json -AsArray -Depth 5
+    $maxRetry = 5
+    for ($i = 1; $i -le $maxRetry; $i++) {
+        try {
+            [System.IO.File]::WriteAllText($path, $json, [System.Text.Encoding]::UTF8)
+            return $true
+        } catch {
+            if ($i -eq $maxRetry) {
+                Write-Host "エラー: works.json に書き込めませんでした。" -ForegroundColor Red
+                Write-Host "アンチウイルスソフトがブロックしている可能性があります。" -ForegroundColor Red
+                Write-Host "スクリプトをアンチウイルスの除外リストに追加してください。" -ForegroundColor Yellow
+                return $false
+            }
+            Start-Sleep -Milliseconds 500
+        }
+    }
+}
+
 if ($mode -eq "1") {
     $newEntry = [PSCustomObject]@{
         image    = "works/$selectedImage"
@@ -168,8 +188,8 @@ if ($mode -eq "1") {
         year     = $year
     }
     $works += $newEntry
-    $json = $works | ConvertTo-Json -AsArray -Depth 5
-    [System.IO.File]::WriteAllText($jsonPath, $json, [System.Text.Encoding]::UTF8)
+    $result = Write-JsonSafe $jsonPath $works
+    if (-not $result) { Read-Host "Enterキーで終了"; exit }
     Write-Host ""
     Write-Host "✓ works.json を更新しました。" -ForegroundColor Green
 }
@@ -177,8 +197,8 @@ if ($mode -eq "1") {
 if ($mode -eq "2") {
     $works = $works | Where-Object { $_ -ne $target }
     if (-not $works) { $works = @() }
-    $json = @($works) | ConvertTo-Json -AsArray -Depth 5
-    [System.IO.File]::WriteAllText($jsonPath, $json, [System.Text.Encoding]::UTF8)
+    $result = Write-JsonSafe $jsonPath @($works)
+    if (-not $result) { Read-Host "Enterキーで終了"; exit }
 
     if ($delFile -eq "y" -or $delFile -eq "Y") {
         $imagePath = Join-Path $scriptDir $target.image
