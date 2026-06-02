@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
 <title>長栄建設株式会社 | 埼玉県秩父・長瀞の土木建設会社</title>
 <meta name="description" content="長栄建設株式会社は埼玉県秩父郡長瀞町に拠点を置く土木建設会社です。道路・舗装・河川・砂防・橋梁・管工事・治山・林道・外構工事を手がけ、埼玉県・市・町の公共工事を中心に地域インフラを支えています。ISO 9001：2015認証取得。">
 <meta name="keywords" content="長栄建設,長栄建設株式会社,土木工事,建設会社,秩父,長瀞,埼玉,道路工事,舗装工事,河川工事,砂防工事,橋梁工事,管工事,治山工事,林道工事,外構工事,公共工事,土木施工管理,求人,採用">
@@ -177,6 +178,7 @@
   .contact-inner > p { font-size: 15px; line-height: 2; color: rgba(232,245,238,0.80); margin-bottom: 48px; }
   .contact-actions { display: flex; flex-direction: column; align-items: center; gap: 20px; }
   .contact-tel { font-family: 'Cormorant Garamond', serif; font-size: 40px; color: var(--green-light); letter-spacing: 0.05em; }
+  .contact-tel a { color: var(--green-light); -webkit-text-fill-color: var(--green-light); text-decoration: none; }
   .contact-tel-note { font-size: 12px; color: rgba(232,245,238,0.60); letter-spacing: 0.2em; margin-top: 6px; }
 
   footer { background: #081410; padding: 60px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(46,158,98,0.20); }
@@ -192,6 +194,31 @@
     .philosophy-inner, .recruit-grid { grid-template-columns: 1fr; gap: 48px; }
     .services-grid, .works-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 24px; text-align: center; }
+  }
+
+  /* ===== アコーディオン（スマホのみ。PCは従来通り全表示） ===== */
+  .acc-toggle { display: none; }
+  @media (min-width: 901px) {
+    .acc > .acc-body { display: contents; }   /* PCではラッパを無効化し元レイアウト維持 */
+  }
+  @media (max-width: 900px) {
+    section.acc { padding: 0 24px; border-top: 1px solid rgba(46,158,98,0.18); }
+    .acc-toggle { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      width: 100%; padding: 26px 0; background: none; border: none; color: inherit;
+      font-family: inherit; cursor: pointer; text-align: left; -webkit-tap-highlight-color: transparent; }
+    .acc-head { display: flex; flex-direction: column; gap: 4px; }
+    .acc-label { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.3em; color: var(--green); text-transform: uppercase; }
+    .acc-title { font-family: 'Shippori Mincho', serif; font-size: 20px; font-weight: 700; color: var(--green-light); }
+    .acc-icon { position: relative; width: 18px; height: 18px; flex-shrink: 0; }
+    .acc-icon::before, .acc-icon::after { content: ''; position: absolute; background: var(--green); transition: transform 0.3s; }
+    .acc-icon::before { top: 8px; left: 0; width: 18px; height: 2px; }
+    .acc-icon::after  { left: 8px; top: 0; width: 2px; height: 18px; }
+    .acc.open .acc-icon::after { transform: scaleY(0); }   /* 開くと ＋ → － */
+    .acc > .acc-body { overflow: hidden; max-height: 0; transition: max-height 0.45s ease; }
+    .acc.open > .acc-body { max-height: 12000px; padding-bottom: 56px; }
+    .acc-body .section-label, .acc-body .section-title, .acc-body .divider,
+    .acc-body .services-header, .acc-body .works-header { display: none; }
+    .recruit::before { display: none; }
   }
 </style>
 </head>
@@ -344,7 +371,7 @@
       <tr><th>資本金</th><td>2,000万円</td></tr>
       <tr><th>所在地</th><td>埼玉県秩父郡長瀞町大字野上下郷1920番地</td></tr>
       <tr><th>建設業許可</th><td>埼玉県知事（特７）第25958号</td></tr>
-      <tr><th>事業内容</th><td>土木一式工事、とび土工工事、舗装工事、道路工事、河川工事、管工事、治山工事、林道工事、橋梁工事</td></tr>
+      <tr><th>事業内容</th><td>舗装工事、道路工事、河川工事、管工事、治山工事、林道工事、橋梁工事</td></tr>
       <tr><th>技術者</th><td>1級土木施工管理技士　7名 ／ 2級土木施工管理技士　2名 ／ 給水装置工事主任技術者　1名</td></tr>
       <tr><th>認証</th><td>ISO 9001：2015 認証取得</td></tr>
       <tr><th>取引銀行</th><td>埼玉りそな銀行 秩父支店 ／ 埼玉信用組合 皆野支店 ／ 武蔵野銀行 秩父支店</td></tr>
@@ -397,7 +424,7 @@
     <div class="divider"></div>
     <div class="contact-actions">
       <div>
-        <div class="contact-tel">0494-66-2750</div>
+        <div class="contact-tel"><a href="tel:0494-66-2750">0494-66-2750</a></div>
         <div class="contact-tel-note">受付時間 平日 8:00〜17:00　／　FAX：0494-66-3085</div>
       </div>
       <div style="margin-top:8px;color:rgba(232,245,238,0.48);font-size:13px;letter-spacing:0.2em;">── または ──</div>
@@ -409,4 +436,46 @@
 </section>
 
 <footer>
-  <div class="footer-logo">長栄建設株式会社<span>CHOEI CON
+  <div class="footer-logo">長栄建設株式会社<span>CHOEI CONSTRUCTION CO., LTD.</span></div>
+  <div class="footer-copy">© 2025 長栄建設株式会社 All Rights Reserved.</div>
+</footer>
+
+<script>
+/* スマホ用アコーディオン：対象セクションを「見出しバー＋本文」に変換（PCはCSSで従来表示） */
+(function () {
+  var ids = ['philosophy', 'services', 'works', 'company', 'recruit'];
+  ids.forEach(function (id) {
+    var sec = document.getElementById(id);
+    if (!sec || sec.classList.contains('acc')) return;
+
+    var labelEl = sec.querySelector('.section-label');
+    var titleEl = sec.querySelector('.section-title');
+    var label = labelEl ? labelEl.textContent.trim() : '';
+    var title = titleEl ? titleEl.textContent.trim() : '';
+
+    var body = document.createElement('div');
+    body.className = 'acc-body';
+    while (sec.firstChild) { body.appendChild(sec.firstChild); }
+
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'acc-toggle';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span class="acc-head"><span class="acc-label"></span><span class="acc-title"></span></span><span class="acc-icon" aria-hidden="true"></span>';
+    btn.querySelector('.acc-label').textContent = label;
+    btn.querySelector('.acc-title').textContent = title;
+
+    sec.appendChild(btn);
+    sec.appendChild(body);
+    sec.classList.add('acc');
+
+    btn.addEventListener('click', function () {
+      var open = sec.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
