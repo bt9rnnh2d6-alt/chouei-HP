@@ -2,6 +2,32 @@
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $OutputEncoding = [System.Text.Encoding]::UTF8
 
+# ===== 入力の正規化（IME・全角対策） =====
+# 日本語入力(IME)がオンのまま「ｙ」「１」など全角で入力されても
+# 正しく判定できるよう、半角へ変換してから扱う。
+function ConvertTo-HalfWidth([string]$s) {
+    if ([string]::IsNullOrEmpty($s)) { return "" }
+    $sb = New-Object System.Text.StringBuilder
+    foreach ($ch in $s.ToCharArray()) {
+        $code = [int][char]$ch
+        if ($code -ge 0xFF01 -and $code -le 0xFF5E) {
+            [void]$sb.Append([char]($code - 0xFEE0))   # 全角英数記号 → 半角
+        } elseif ($code -eq 0x3000) {
+            [void]$sb.Append(' ')                       # 全角スペース → 半角
+        } else {
+            [void]$sb.Append($ch)
+        }
+    }
+    return $sb.ToString()
+}
+# Read-Host の入力を半角化＋前後空白除去して返す
+function Read-Normalized([string]$prompt) { (ConvertTo-HalfWidth (Read-Host $prompt)).Trim() }
+# 「はい」とみなせるか（y / yes、全角・大文字も許容）
+function Test-Yes([string]$s) {
+    $v = (ConvertTo-HalfWidth $s).Trim().ToLower()
+    return ($v -eq "y" -or $v -eq "yes")
+}
+
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $jsonPath  = Join-Path $scriptDir "works.json"
 $worksDir  = Join-Path $scriptDir "works"
@@ -24,7 +50,7 @@ Write-Host ""
 Write-Host "  1. 施工実績を追加する"
 Write-Host "  2. 施工実績を削除する"
 Write-Host ""
-do { $mode = Read-Host "番号を入力してください" } while ($mode -notin @("1","2"))
+do { $mode = Read-Normalized "番号を入力してください" } while ($mode -notin @("1","2"))
 
 
 # ========== 追加モード：情報を収集するだけ（ファイルはまだ変更しない） ==========
@@ -60,7 +86,7 @@ if ($mode -eq "1") {
     }
     Write-Host ""
     do {
-        $sel = Read-Host "追加する写真の番号を入力してください"
+        $sel = Read-Normalized "追加する写真の番号を入力してください"
         $selNum = [int]$sel - 1
     } while ($selNum -lt 0 -or $selNum -ge $newImages.Count)
     $selectedImage = $newImages[$selNum]
@@ -81,7 +107,7 @@ if ($mode -eq "1") {
     Write-Host "  7. その他（直接入力）"
     Write-Host ""
     $categoryMap = @{ "1"="Bridge"; "2"="Road"; "3"="River"; "4"="Civil"; "5"="Erosion Control"; "6"="Road / Bridge" }
-    do { $catSel = Read-Host "番号を入力" } while ($catSel -notin @("1","2","3","4","5","6","7"))
+    do { $catSel = Read-Normalized "番号を入力" } while ($catSel -notin @("1","2","3","4","5","6","7"))
     if ($catSel -eq "7") { $category = Read-Host "カテゴリ名を入力してください（英語）" }
     else                 { $category = $categoryMap[$catSel] }
 
@@ -114,13 +140,13 @@ if ($mode -eq "2") {
     }
     Write-Host ""
     do {
-        $sel = Read-Host "削除する番号を入力してください"
+        $sel = Read-Normalized "削除する番号を入力してください"
         $selNum = [int]$sel - 1
     } while ($selNum -lt 0 -or $selNum -ge $works.Count)
     $target = $works[$selNum]
 
     Write-Host ""
-    $delFile = Read-Host "写真ファイル（$($target.image)）も削除しますか？（y/n）"
+    $delFile = Read-Normalized "写真ファイル（$($target.image)）も削除しますか？（y/n）"
 
     $commitMsg = "施工実績を削除: $($target.title)"
 }
@@ -145,7 +171,7 @@ if ($mode -eq "1") {
     Write-Host "  工事名  : $($target.title)"
     Write-Host "  竣工年度: $($target.year)"
     Write-Host "  画像    : $($target.image)"
-    if ($delFile -eq "y" -or $delFile -eq "Y") {
+    if (Test-Yes $delFile) {
         Write-Host "  写真    : 削除する" -ForegroundColor Red
     } else {
         Write-Host "  写真    : 残す"
@@ -156,8 +182,8 @@ Write-Host ""
 Write-Host "  ⚠ この操作はホームページに即座に公開されます" -ForegroundColor Red
 Write-Host "======================================" -ForegroundColor Red
 Write-Host ""
-$confirm = Read-Host "実行してよろしいですか？（y/n）"
-if ($confirm -ne "y" -and $confirm -ne "Y") {
+$confirm = Read-Normalized "実行してよろしいですか？（y/n）"
+if (-not (Test-Yes $confirm)) {
     Write-Host ""
     Write-Host "キャンセルしました。何も変更されていません。" -ForegroundColor Yellow
     Write-Host ""
@@ -244,7 +270,7 @@ if ($mode -eq "1") {
 if ($mode -eq "2") {
     $works = @($works | Where-Object { $_ -ne $target })
 
-    if ($delFile -eq "y" -or $delFile -eq "Y") {
+    if (Test-Yes $delFile) {
         $imagePath = Join-Path $scriptDir $target.image
         if (Test-Path $imagePath) { Remove-Item $imagePath -Force }
     }
