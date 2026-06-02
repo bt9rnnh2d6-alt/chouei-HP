@@ -37,9 +37,26 @@ if (-not (Test-Path $worksDir)) {
     New-Item -ItemType Directory -Path $worksDir | Out-Null
 }
 
-# works.json を読み込む
-$works = Get-Content $jsonPath -Encoding UTF8 | ConvertFrom-Json
-if (-not $works) { $works = @() }
+# works.json を読み込む（空白・NUL埋め等で壊れていたらデータ消失を防ぐため中止）
+if (-not (Test-Path $jsonPath)) {
+    Write-Host "works.json が見つかりません。処理を中止しました。" -ForegroundColor Red
+    Read-Host "Enterキーで終了"; exit
+}
+$jsonRaw   = Get-Content $jsonPath -Raw -Encoding UTF8
+$jsonClean = $jsonRaw.Trim([char]0xFEFF, [char]0, ' ', "`t", "`r", "`n")
+if ([string]::IsNullOrWhiteSpace($jsonClean)) {
+    Write-Host "works.json が空、またはファイルが壊れています。処理を中止しました。" -ForegroundColor Red
+    Write-Host "（OneDrive同期やアンチウイルスで破損した可能性があります）" -ForegroundColor Yellow
+    Write-Host "GitHub上の正常な works.json に復元してから再実行してください。" -ForegroundColor Yellow
+    Read-Host "Enterキーで終了"; exit
+}
+try {
+    $works = @($jsonClean | ConvertFrom-Json)
+} catch {
+    Write-Host "works.json の読み込みに失敗しました（JSONとして不正です）。処理を中止しました。" -ForegroundColor Red
+    Write-Host "ファイルが壊れている可能性があります。復元してから再実行してください。" -ForegroundColor Yellow
+    Read-Host "Enterキーで終了"; exit
+}
 
 # ========== メインメニュー ==========
 Write-Host ""
@@ -253,7 +270,7 @@ if ($mode -eq "1") {
         town     = $town
         client   = $client
     }
-    $works += $newEntry
+    $works = @($newEntry) + $works   # 先頭に追加 → サイトの左上に表示される
 
     # works.json を更新
     $json = $works | ConvertTo-Json -AsArray -Depth 5
