@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#142c1e">
+<meta name="theme-color" content="#ffffff">
 <title>長栄建設株式会社 | 埼玉県秩父・長瀞の土木建設会社</title>
 <meta name="description" content="長栄建設株式会社は埼玉県秩父郡長瀞町に拠点を置く土木建設会社です。道路・舗装・河川・砂防・橋梁・管工事・治山・林道・外構工事を手がけ、埼玉県・市・町の公共工事を中心に地域インフラを支えています。ISO 9001：2015認証取得。">
 <meta name="keywords" content="長栄建設,長栄建設株式会社,土木工事,建設会社,秩父,長瀞,埼玉,道路工事,舗装工事,河川工事,砂防工事,橋梁工事,管工事,治山工事,林道工事,外構工事,公共工事,土木施工管理,求人,採用">
@@ -57,219 +57,87 @@
   "sameAs": []
 }
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700;900&family=Shippori+Mincho:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #0e2218;
-    --navy-mid: #162d20;
-    --green: #52c483;
-    --green-light: #80dba8;
-    --white: #e8f5ee;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Noto Serif JP', serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
-
-  nav {
-    position: fixed; top: 0; width: 100%; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 24px 60px;
-    background: linear-gradient(to bottom, rgba(10,26,16,0.97), transparent);
-    backdrop-filter: blur(2px);
-  }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 0.3em; color: var(--green); text-transform: uppercase; }
-  .nav-logo span { display: block; font-family: 'Shippori Mincho', serif; font-size: 18px; letter-spacing: 0.1em; color: var(--white); }
-  .nav-links { display: flex; gap: 40px; list-style: none; }
-  .nav-links a { font-family: 'Shippori Mincho', serif; font-size: 13px; color: var(--white); text-decoration: none; letter-spacing: 0.12em; opacity: 1; transition: opacity 0.3s, color 0.3s; }
-  .nav-links a:hover { opacity: 1; color: var(--green); }
-
-  .hero {
-    height: 100vh; position: relative;
-    display: flex; align-items: flex-end;
-    padding: 0 60px 80px; overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(135deg, rgba(10,26,16,0.75) 0%, rgba(10,26,16,0.45) 50%, rgba(10,26,16,0.8) 100%),
-      url('image1.jpeg');
-    background-size: cover;
-    background-position: center 30%;
-    background-color: #0e2218;
-  }
-  .hero-grid {
-    position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(46,158,98,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(46,158,98,0.08) 1px, transparent 1px);
-    background-size: 80px 80px;
-    animation: gridShift 20s linear infinite;
-  }
-  @keyframes gridShift { from { background-position: 0 0; } to { background-position: 80px 80px; } }
-  .hero-accent {
-    position: absolute; right: 80px; top: 50%; transform: translateY(-50%);
-    width: 1px; height: 60vh;
-    background: linear-gradient(to bottom, transparent, var(--green), transparent);
-    animation: pulse 3s ease-in-out infinite;
-  }
-  @keyframes pulse { 0%,100%{opacity:0.4}50%{opacity:1} }
-  .hero-content { position: relative; z-index: 2; max-width: 700px; }
-  .hero-sub { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 0.5em; color: var(--green); text-transform: uppercase; margin-bottom: 24px; animation: fadeUp 1s 0.2s both; }
-  .hero-title { font-family: 'Shippori Mincho', serif; font-size: clamp(48px,7vw,88px); font-weight: 700; line-height: 1.1; animation: fadeUp 1s 0.4s both; }
-  .hero-title em { font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--green-light); font-size: 1.1em; }
-  .hero-desc { margin-top: 28px; font-size: 15px; line-height: 2; color: rgba(232,245,238,0.80); max-width: 460px; animation: fadeUp 1s 0.6s both; }
-  .hero-cta { margin-top: 48px; display: flex; gap: 20px; align-items: center; animation: fadeUp 1s 0.8s both; }
-  .btn-primary { display: inline-block; padding: 16px 44px; background: var(--green); color: var(--navy); font-family: 'Shippori Mincho', serif; font-size: 14px; letter-spacing: 0.15em; text-decoration: none; font-weight: 700; transition: all 0.3s; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); }
-  .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); }
-  .btn-secondary { font-family: 'Shippori Mincho', serif; font-size: 13px; color: var(--white); text-decoration: none; letter-spacing: 0.15em; opacity: 0.7; border-bottom: 1px solid rgba(232,245,238,0.38); padding-bottom: 2px; transition: opacity 0.3s; }
-  .btn-secondary:hover { opacity: 1; }
-  .hero-scroll { position: absolute; bottom: 40px; right: 60px; font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.3em; color: var(--green); opacity: 0.7; writing-mode: vertical-rl; display: flex; align-items: center; gap: 16px; animation: fadeIn 2s 1.5s both; }
-  .hero-scroll::after { content: ''; display: block; width: 1px; height: 60px; background: linear-gradient(to bottom, var(--green), transparent); animation: scrollLine 2s ease-in-out infinite; }
-  @keyframes scrollLine { 0%,100%{transform:scaleY(1);opacity:0.7}50%{transform:scaleY(0.6);opacity:1} }
-  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)} }
-  @keyframes fadeIn { from{opacity:0}to{opacity:0.7} }
-
-  section { padding: 120px 60px; }
-  .section-label { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.5em; color: var(--green); text-transform: uppercase; margin-bottom: 16px; }
-  .section-title { font-family: 'Shippori Mincho', serif; font-size: clamp(32px,4vw,48px); font-weight: 700; line-height: 1.3; }
-  .divider { width: 60px; height: 1px; background: var(--green); margin: 32px 0; }
-
-  .philosophy { background: var(--navy-mid); }
-  .philosophy-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
-  .philosophy-quote { font-family: 'Shippori Mincho', serif; font-size: clamp(22px,3vw,34px); font-weight: 400; line-height: 2; color: var(--green-light); border-left: 2px solid var(--green); padding-left: 32px; }
-  .philosophy-text p { font-size: 15px; line-height: 2.2; color: rgba(232,245,238,0.85); margin-bottom: 20px; }
-
-  .services { background: var(--navy); }
-  .services-header { max-width: 1200px; margin: 0 auto 64px; }
-  .services-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
-  .service-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(46,158,98,0.20); padding: 52px 40px; position: relative; overflow: hidden; transition: all 0.4s; }
-  .service-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg,rgba(46,158,98,0.10),transparent); opacity: 0; transition: opacity 0.4s; }
-  .service-card:hover { border-color: rgba(46,158,98,0.55); transform: translateY(-4px); }
-  .service-card:hover::before { opacity: 1; }
-  .service-num { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300; color: rgba(46,158,98,0.20); line-height: 1; margin-bottom: 28px; }
-  .service-icon { font-size: 32px; margin-bottom: 20px; }
-  .service-name { font-family: 'Shippori Mincho', serif; font-size: 20px; font-weight: 700; margin-bottom: 16px; color: var(--green-light); }
-  .service-desc { font-size: 14px; line-height: 2; color: rgba(232,245,238,0.72); }
-
-  .works { background: var(--navy-mid); }
-  .works-header { max-width: 1200px; margin: 0 auto 64px; }
-  .works-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
-  .work-card { position: relative; overflow: hidden; background: rgba(255,255,255,0.07); border: 1px solid rgba(46,158,98,0.15); transition: all 0.4s; }
-  .work-card:hover { border-color: rgba(46,158,98,0.45); transform: translateY(-6px); }
-  .work-img { height: 220px; display: flex; align-items: center; justify-content: center; font-size: 60px; position: relative; overflow: hidden; }
-  .work-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(10,26,16,0.6)); }
-  .work-info { padding: 24px 28px; }
-  .work-category { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.4em; color: var(--green); text-transform: uppercase; margin-bottom: 10px; }
-  .work-title { font-family: 'Shippori Mincho', serif; font-size: 17px; font-weight: 700; margin-bottom: 8px; }
-  .work-meta { font-size: 13px; color: rgba(232,245,238,0.60); }
-
-  .company { background: var(--navy); }
-  .company-inner { max-width: 900px; margin: 0 auto; }
-  .company-table { width: 100%; border-collapse: collapse; margin-top: 48px; }
-  .company-table tr { border-bottom: 1px solid rgba(46,158,98,0.20); transition: background 0.3s; }
-  .company-table tr:hover { background: rgba(46,158,98,0.06); }
-  .company-table th { width: 200px; padding: 20px 0; font-family: 'Shippori Mincho', serif; font-size: 13px; font-weight: 700; color: var(--green); text-align: left; letter-spacing: 0.1em; }
-  .company-table td { padding: 20px 0 20px 40px; font-size: 14px; line-height: 1.8; color: rgba(232,245,238,0.90); }
-
-  .recruit { background: linear-gradient(135deg, #142c1e 0%, #1e4030 50%, #142c1e 100%); position: relative; overflow: hidden; }
-  .recruit::before { content: '採用'; position: absolute; right: -40px; top: 50%; transform: translateY(-50%) rotate(90deg); font-family: 'Shippori Mincho', serif; font-size: 200px; font-weight: 900; color: rgba(46,158,98,0.06); white-space: nowrap; pointer-events: none; }
-  .recruit-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
-  .recruit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .recruit-points { display: flex; flex-direction: column; gap: 24px; }
-  .recruit-point { display: flex; align-items: flex-start; gap: 20px; padding: 24px; background: rgba(255,255,255,0.07); border-left: 3px solid var(--green); transition: all 0.3s; }
-  .recruit-point:hover { background: rgba(46,158,98,0.10); }
-  .rp-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--green); line-height: 1; flex-shrink: 0; min-width: 40px; }
-  .rp-content h4 { font-family: 'Shippori Mincho', serif; font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--green-light); }
-  .rp-content p { font-size: 13px; line-height: 1.9; color: rgba(232,245,238,0.72); }
-
-  .contact { background: var(--navy-mid); }
-  .contact-inner { max-width: 700px; margin: 0 auto; text-align: center; }
-  .contact-inner .divider { margin: 32px auto; }
-  .contact-inner > p { font-size: 15px; line-height: 2; color: rgba(232,245,238,0.80); margin-bottom: 48px; }
-  .contact-actions { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-  .contact-tel { font-family: 'Cormorant Garamond', serif; font-size: 40px; color: var(--green-light); letter-spacing: 0.05em; }
-  .contact-tel a { color: var(--green-light); -webkit-text-fill-color: var(--green-light); text-decoration: none; }
-  .contact-tel-note { font-size: 12px; color: rgba(232,245,238,0.60); letter-spacing: 0.2em; margin-top: 6px; }
-
-  footer { background: #081410; padding: 60px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(46,158,98,0.20); }
-  .footer-logo { font-family: 'Shippori Mincho', serif; font-size: 20px; font-weight: 700; }
-  .footer-logo span { display: block; font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.4em; color: var(--green); margin-top: 4px; }
-  .footer-copy { font-size: 12px; color: rgba(232,245,238,0.38); letter-spacing: 0.1em; }
-
-  @media (max-width: 900px) {
-    nav { padding: 20px 24px; }
-    .nav-links { display: none; }
-    section { padding: 80px 24px; }
-    .hero { padding: 0 24px 80px; }
-    .philosophy-inner, .recruit-grid { grid-template-columns: 1fr; gap: 48px; }
-    .services-grid, .works-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 24px; text-align: center; }
-  }
-
-  /* ===== アコーディオン（スマホのみ。PCは従来通り全表示） ===== */
-  .acc-toggle { display: none; }
-  @media (min-width: 901px) {
-    .acc > .acc-body { display: contents; }   /* PCではラッパを無効化し元レイアウト維持 */
-  }
-  @media (max-width: 900px) {
-    section.acc { padding: 0 24px; border-top: 1px solid rgba(46,158,98,0.18); }
-    .acc-toggle { display: flex; align-items: center; justify-content: space-between; gap: 16px;
-      width: 100%; padding: 26px 0; background: none; border: none; color: inherit;
-      font-family: inherit; cursor: pointer; text-align: left; -webkit-tap-highlight-color: transparent; }
-    .acc-head { display: flex; flex-direction: column; gap: 4px; }
-    .acc-label { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.3em; color: var(--green); text-transform: uppercase; }
-    .acc-title { font-family: 'Shippori Mincho', serif; font-size: 20px; font-weight: 700; color: var(--green-light); }
-    .acc-icon { position: relative; width: 18px; height: 18px; flex-shrink: 0; }
-    .acc-icon::before, .acc-icon::after { content: ''; position: absolute; background: var(--green); transition: transform 0.3s; }
-    .acc-icon::before { top: 8px; left: 0; width: 18px; height: 2px; }
-    .acc-icon::after  { left: 8px; top: 0; width: 2px; height: 18px; }
-    .acc.open .acc-icon::after { transform: scaleY(0); }   /* 開くと ＋ → － */
-    .acc > .acc-body { overflow: hidden; max-height: 0; transition: max-height 0.45s ease; }
-    .acc.open > .acc-body { max-height: 12000px; padding-bottom: 56px; }
-    .acc-body .section-label, .acc-body .section-title, .acc-body .divider,
-    .acc-body .services-header, .acc-body .works-header { display: none; }
-    .recruit::before { display: none; }
-  }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=1">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-<nav>
-  <div class="nav-logo">CHOEI CONSTRUCTION<span>長栄建設株式会社</span></div>
-  <ul class="nav-links">
-    <li><a href="#philosophy">理念</a></li>
-    <li><a href="#services">事業内容</a></li>
-    <li><a href="#works">施工実績</a></li>
-    <li><a href="#company">会社概要</a></li>
-    <li><a href="#recruit">採用情報</a></li>
-    <li><a href="#contact">お問い合わせ</a></li>
-  </ul>
-</nav>
+<header class="site-header">
+  <a href="index.html" class="brand" aria-label="長栄建設株式会社 トップページ">
+    <span class="brand-en">CHOEI CONSTRUCTION</span>
+    <span class="brand-ja">長栄建設株式会社</span>
+  </a>
+  <nav class="global-nav" aria-label="グローバルナビゲーション">
+    <a href="#philosophy">理念</a>
+    <a href="#services">事業内容</a>
+    <a href="#works">施工実績</a>
+    <a href="#company">会社概要</a>
+    <a href="recruit.html">採用情報</a>
+    <a href="contact.html" class="btn btn-ink btn-sm">お問い合わせ<span class="arw">→</span></a>
+  </nav>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menuOverlay" aria-label="メニューを開閉">
+    <span></span><span></span>
+  </button>
+</header>
 
+<div class="menu-overlay" id="menuOverlay">
+  <nav aria-label="メニュー">
+    <a href="#philosophy" style="--i:0">Philosophy<small>理念</small></a>
+    <a href="#services" style="--i:1">Services<small>事業内容</small></a>
+    <a href="#works" style="--i:2">Works<small>施工実績</small></a>
+    <a href="#company" style="--i:3">Company<small>会社概要</small></a>
+    <a href="recruit.html" style="--i:4">Recruit<small>採用情報</small></a>
+    <a href="contact.html" style="--i:5">Contact<small>お問い合わせ</small></a>
+  </nav>
+  <div class="menu-foot">CHOEI CONSTRUCTION CO., LTD. — SINCE 1978</div>
+</div>
+
+<!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-accent"></div>
-  <div class="hero-content">
-    <p class="hero-sub">Since 1978 — Building the Future</p>
-    <h1 class="hero-title">確かな技術で<br><em>未来を</em>築く</h1>
-    <p class="hero-desc">埼玉県秩父地域を拠点に、道路・舗装・河川・治山・橋梁工事を得意とする土木建設会社。<br>「精励恪勤」の精神で、地域インフラを支え続けて半世紀。</p>
-    <div class="hero-cta">
-      <a href="#works" class="btn-primary">施工実績を見る</a>
-      <a href="#contact" class="btn-secondary">お問い合わせ →</a>
+  <div class="container">
+    <p class="hero-label">Choei Construction — Civil Engineering Since 1978</p>
+    <h1 class="hero-title">
+      <span class="line"><span>Groundwork</span></span>
+      <span class="line"><span class="outline">for the</span></span>
+      <span class="line"><span>Future<span class="green">.</span></span></span>
+    </h1>
+    <div class="hero-lead">
+      <p class="hero-copy-ja">確かな技術で、<br>未来を築く。</p>
+      <p class="hero-desc">埼玉県秩父地域を拠点に、道路・舗装・河川・治山・橋梁工事を得意とする土木建設会社。「精励恪勤」の精神で、地域インフラを支え続けて半世紀。</p>
+    </div>
+    <p class="hero-scroll" aria-hidden="true">Scroll</p>
+    <div class="hero-visual">
+      <img src="image1.jpeg" alt="長栄建設の施工現場" fetchpriority="high">
+      <span class="chip">埼玉県秩父郡長瀞町 — Local Infrastructure Partner</span>
     </div>
   </div>
-  <div class="hero-scroll">SCROLL</div>
 </section>
 
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Road</span><i>◆</i><span>Pavement</span><i>◆</i><span>River</span><i>◆</i><span>Bridge</span><i>◆</i><span>Erosion Control</span><i>◆</i><span>Water Works</span><i>◆</i><span>Forest Road</span><i>◆</i><span>Exterior</span><i>◆</i><span>Road</span><i>◆</i><span>Pavement</span><i>◆</i><span>River</span><i>◆</i><span>Bridge</span><i>◆</i><span>Erosion Control</span><i>◆</i><span>Water Works</span><i>◆</i><span>Forest Road</span><i>◆</i><span>Exterior</span><i>◆</i>
+  </div>
+</div>
+
+<!-- ============ PHILOSOPHY ============ -->
 <section class="philosophy" id="philosophy">
-  <div class="philosophy-inner">
-    <div>
-      <div class="section-label">Our Philosophy</div>
-      <div class="section-title">経営理念</div>
-      <div class="divider"></div>
-      <blockquote class="philosophy-quote">精励恪勤<br>安全第一<br>顧客満足</blockquote>
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="label">Our Philosophy</p>
+      <h2 class="sec-title-en">Philosophy<span class="accent-dot">.</span></h2>
+      <p class="sec-title-ja">経営理念</p>
     </div>
-    <div>
-      <div class="philosophy-text">
+    <div class="philosophy-grid">
+      <div class="creed-list">
+        <div class="creed reveal"><span class="creed-num">01</span><span class="creed-word">精励恪勤<span class="green-dot">。</span></span></div>
+        <div class="creed reveal" style="--d:0.1s"><span class="creed-num">02</span><span class="creed-word">安全第一<span class="green-dot">。</span></span></div>
+        <div class="creed reveal" style="--d:0.2s"><span class="creed-num">03</span><span class="creed-word">顧客満足<span class="green-dot">。</span></span></div>
+      </div>
+      <div class="philosophy-text reveal" style="--d:0.15s">
         <p>当社は、昭和53年7月に中畝土建として創業し、翌年「長栄建設株式会社」として現在に至ります。埼玉県秩父地域を拠点に、道路・舗装・河川・管工事・治山・林道・橋梁工事を得意とし、受注の約9割を埼玉県・市・町から頂いております。</p>
         <p>私たちは「精励恪勤」を社是とし、安全第一・顧客重視・健全経営の三本柱で地域インフラを支えてきました。発注者の立場に立ち、工期内完成・コスト削減・高品質な施工を徹底します。</p>
         <p>ISO 9001認証を取得し、品質マネジメントの面でも高い水準を維持。少人数で高品質な施工を実現することで、地域社会の安全と発展に貢献し続けます。</p>
@@ -278,60 +146,96 @@
   </div>
 </section>
 
-<section class="services" id="services">
-  <div class="services-header">
-    <div class="section-label">Our Services</div>
-    <div class="section-title">事業内容</div>
-    <div class="divider"></div>
-  </div>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-num">01</div>
-      <div class="service-icon">🛣️</div>
-      <div class="service-name">道路・舗装工事</div>
-      <p class="service-desc">道路改築・舗装整備・自転車歩行者道整備など、幅広い道路工事に対応します。県・市・町発注の公共工事を数多く手がけ、地域の交通インフラを支えています。</p>
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="label">Facts &amp; Figures</p>
+      <h2 class="sec-title-en">By the Numbers</h2>
+      <p class="sec-title-ja">数字で見る長栄建設</p>
     </div>
-    <div class="service-card">
-      <div class="service-num">02</div>
-      <div class="service-icon">🌊</div>
-      <div class="service-name">河川・砂防工事</div>
-      <p class="service-desc">河川護岸・通常砂防工事・災害復旧工事を得意とします。自然災害から地域を守るインフラ整備を継続的に担い、安全な生活環境の維持に貢献しています。</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">03</div>
-      <div class="service-icon">🏗️</div>
-      <div class="service-name">橋梁工事</div>
-      <p class="service-desc">橋梁の新設・補修・修繕工事を手がけます。高度な技術力を要する橋梁工事において豊富な実績を持ち、安全で長寿命な橋梁の整備を支えています。</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">04</div>
-      <div class="service-icon">💧</div>
-      <div class="service-name">管工事・上下水道</div>
-      <p class="service-desc">送水管布設・下水道枝線工事・配水管布設替え工事など、生活に欠かせない上下水道インフラの整備・維持管理を幅広く手がけています。</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">05</div>
-      <div class="service-icon">🌲</div>
-      <div class="service-name">治山・林道工事</div>
-      <p class="service-desc">山地災害防止のための治山工事と林道整備を手がけます。豊かな自然環境を守りながら山間地域の安全を確保し、持続可能な森林管理を支援します。</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">06</div>
-      <div class="service-icon">🏘️</div>
-      <div class="service-name">外構工事</div>
-      <p class="service-desc">駐車場・フェンス・門扉・舗装・排水設備など、建物周辺の外構整備を幅広く手がけます。地域密着で培った技術と信頼で、安全・高品質な施工をご提供します。</p>
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <p class="stat-label">Founded</p>
+        <p class="stat-value"><span data-count="1978">1978</span></p>
+        <p class="stat-note">昭和53年創業。半世紀にわたり秩父地域のインフラを支えています。</p>
+      </div>
+      <div class="stat reveal" style="--d:0.08s">
+        <p class="stat-label">Licensed Engineers</p>
+        <p class="stat-value"><span data-count="7">7</span><small>名</small></p>
+        <p class="stat-note">1級土木施工管理技士。ほか2級土木施工管理技士2名・給水装置工事主任技術者1名が在籍。</p>
+      </div>
+      <div class="stat reveal" style="--d:0.16s">
+        <p class="stat-label">Public Works</p>
+        <p class="stat-value"><small>約</small><span data-count="9">9</span><small>割</small></p>
+        <p class="stat-note">受注の約9割が埼玉県・市・町発注の公共工事です。</p>
+      </div>
+      <div class="stat reveal" style="--d:0.24s">
+        <p class="stat-label">ISO Certified</p>
+        <p class="stat-value">9001</p>
+        <p class="stat-note">ISO 9001：2015（品質マネジメントシステム）認証取得。</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="works" id="works">
-  <div class="works-header">
-    <div class="section-label">Our Works</div>
-    <div class="section-title">施工実績</div>
-    <div class="divider"></div>
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="label">Our Services</p>
+      <h2 class="sec-title-en">Services<span class="accent-dot">.</span></h2>
+      <p class="sec-title-ja">事業内容</p>
+    </div>
+    <ol class="svc-list">
+      <li class="svc-row reveal">
+        <span class="svc-num">01</span>
+        <h3 class="svc-name">道路・舗装工事<span class="svc-en">Road &amp; Pavement</span></h3>
+        <p class="svc-desc">道路改築・舗装整備・自転車歩行者道整備など、幅広い道路工事に対応します。県・市・町発注の公共工事を数多く手がけ、地域の交通インフラを支えています。</p>
+      </li>
+      <li class="svc-row reveal">
+        <span class="svc-num">02</span>
+        <h3 class="svc-name">河川・砂防工事<span class="svc-en">River &amp; Erosion Control</span></h3>
+        <p class="svc-desc">河川護岸・通常砂防工事・災害復旧工事を得意とします。自然災害から地域を守るインフラ整備を継続的に担い、安全な生活環境の維持に貢献しています。</p>
+      </li>
+      <li class="svc-row reveal">
+        <span class="svc-num">03</span>
+        <h3 class="svc-name">橋梁工事<span class="svc-en">Bridge</span></h3>
+        <p class="svc-desc">橋梁の新設・補修・修繕工事を手がけます。高度な技術力を要する橋梁工事において豊富な実績を持ち、安全で長寿命な橋梁の整備を支えています。</p>
+      </li>
+      <li class="svc-row reveal">
+        <span class="svc-num">04</span>
+        <h3 class="svc-name">管工事・上下水道<span class="svc-en">Pipeline &amp; Water Works</span></h3>
+        <p class="svc-desc">送水管布設・下水道枝線工事・配水管布設替え工事など、生活に欠かせない上下水道インフラの整備・維持管理を幅広く手がけています。</p>
+      </li>
+      <li class="svc-row reveal">
+        <span class="svc-num">05</span>
+        <h3 class="svc-name">治山・林道工事<span class="svc-en">Forest Conservation &amp; Forest Road</span></h3>
+        <p class="svc-desc">山地災害防止のための治山工事と林道整備を手がけます。豊かな自然環境を守りながら山間地域の安全を確保し、持続可能な森林管理を支援します。</p>
+      </li>
+      <li class="svc-row reveal">
+        <span class="svc-num">06</span>
+        <h3 class="svc-name">外構工事<span class="svc-en">Exterior Works</span></h3>
+        <p class="svc-desc">駐車場・フェンス・門扉・舗装・排水設備など、建物周辺の外構整備を幅広く手がけます。地域密着で培った技術と信頼で、安全・高品質な施工をご提供します。</p>
+      </li>
+    </ol>
   </div>
-  <div class="works-grid" id="works-grid">
-    <!-- 施工実績はscriptタグから自動生成 -->
+</section>
+
+<!-- ============ WORKS ============ -->
+<section class="works" id="works">
+  <div class="container">
+    <div class="works-head">
+      <div class="sec-head reveal" style="margin-bottom:0;">
+        <p class="label">Our Works</p>
+        <h2 class="sec-title-en">Works<span class="accent-dot">.</span></h2>
+        <p class="sec-title-ja">施工実績</p>
+      </div>
+      <p class="works-count reveal" style="--d:0.1s">Projects：<b id="works-total">10</b></p>
+    </div>
+    <div class="works-grid" id="works-grid">
+      <!-- 施工実績はscriptタグから自動生成 -->
+    </div>
   </div>
 </section>
 <script>
@@ -350,29 +254,35 @@
   ];
   /* ========================= */
   var grid = document.getElementById('works-grid');
+  var cards = '';
   worksData.forEach(function(w, i) {
-    grid.innerHTML +=
-      '<a href="work-detail.html?id=' + i + '" style="text-decoration:none;color:inherit;">' +
-        '<div class="work-card">' +
-          '<div class="work-img" style="background:#0d1f14; padding:0;">' +
-            '<img src="' + w.image + '" alt="' + w.title + '" style="width:100%;height:100%;object-fit:cover;display:block;">' +
-          '</div>' +
-          '<div class="work-info">' +
-            '<div class="work-category">' + w.category + '</div>' +
-            '<div class="work-title">' + w.title + '</div>' +
-            '<div class="work-meta">埼玉県 ／ ' + w.year + '</div>' +
-          '</div>' +
+    cards +=
+      '<a href="work-detail.html?id=' + i + '" class="work-card reveal" style="--d:' + ((i % 2) * 0.08) + 's">' +
+        '<div class="work-media">' +
+          '<img src="' + w.image + '" alt="' + w.title + '" loading="lazy" decoding="async">' +
         '</div>' +
+        '<div class="work-tags">' +
+          '<span class="tag tag-accent">' + w.category + '</span>' +
+          '<span class="tag">' + w.year + '</span>' +
+        '</div>' +
+        '<p class="work-title-txt">' + w.title + '</p>' +
+        '<p class="work-meta">' + (w.town ? w.town : '') + (w.town && w.client ? '　／　' : '') + (w.client ? '発注者：' + w.client : '') + '</p>' +
       '</a>';
   });
+  grid.innerHTML = cards;
+  var worksTotal = document.getElementById('works-total');
+  if (worksTotal) worksTotal.textContent = worksData.length;
 </script>
 
+<!-- ============ COMPANY ============ -->
 <section class="company" id="company">
-  <div class="company-inner">
-    <div class="section-label">Company Profile</div>
-    <div class="section-title">会社概要</div>
-    <div class="divider"></div>
-    <table class="company-table">
+  <div class="container company-grid">
+    <div class="sec-head reveal">
+      <p class="label">Company Profile</p>
+      <h2 class="sec-title-en">Company<span class="accent-dot">.</span></h2>
+      <p class="sec-title-ja">会社概要</p>
+    </div>
+    <table class="company-table reveal" style="--d:0.1s">
       <tr><th>会社名</th><td>長栄建設株式会社</td></tr>
       <tr><th>創業</th><td>昭和53年</td></tr>
       <tr><th>代表取締役社長</th><td>中畝 靖人</td></tr>
@@ -388,35 +298,40 @@
   </div>
 </section>
 
-<section class="recruit" id="recruit">
-  <div class="recruit-inner">
+<!-- ============ RECRUIT ============ -->
+<section class="recruit-sec" id="recruit">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="label">Recruit</p>
+      <h2 class="sec-title-en">Join Us<span class="accent-dot">.</span></h2>
+      <p class="sec-title-ja">採用情報</p>
+    </div>
     <div class="recruit-grid">
       <div>
-        <div class="section-label">Recruit</div>
-        <div class="section-title">採用情報</div>
-        <div class="divider"></div>
-        <p style="font-size:15px;line-height:2.2;color:rgba(232,245,238,0.85);">長栄建設では、共に地域インフラを支える仲間を募集しています。土木工事に携わりたい方、地域に貢献したい方のご応募をお待ちしております。経験者優遇・未経験の方もご相談ください。</p>
-        <div style="margin-top:40px;"><a href="recruit.html" class="btn-primary">採用エントリーはこちら</a></div>
+        <p class="recruit-copy reveal">長栄建設では、共に地域インフラを支える仲間を募集しています。土木工事に携わりたい方、地域に貢献したい方のご応募をお待ちしております。経験者優遇・未経験の方もご相談ください。</p>
+        <div class="reveal" style="margin-top:40px; --d:0.1s;">
+          <a href="recruit.html" class="btn btn-paper">採用エントリーはこちら<span class="arw">→</span></a>
+        </div>
       </div>
       <div class="recruit-points">
-        <div class="recruit-point">
-          <div class="rp-num">01</div>
-          <div class="rp-content">
-            <h4>資格取得支援制度</h4>
+        <div class="r-point reveal">
+          <span class="r-point-num">01</span>
+          <div>
+            <h3>資格取得支援制度</h3>
             <p>1・2級土木施工管理技士などの資格取得を会社が全面サポート。技術者として着実にキャリアアップできる環境を整えています。</p>
           </div>
         </div>
-        <div class="recruit-point">
-          <div class="rp-num">02</div>
-          <div class="rp-content">
-            <h4>安定した地域密着経営</h4>
+        <div class="r-point reveal" style="--d:0.1s">
+          <span class="r-point-num">02</span>
+          <div>
+            <h3>安定した地域密着経営</h3>
             <p>受注の約9割が埼玉県・市・町の公共工事。創業半世紀の実績と信頼で安定した雇用を提供しています。</p>
           </div>
         </div>
-        <div class="recruit-point">
-          <div class="rp-num">03</div>
-          <div class="rp-content">
-            <h4>少数精鋭・フラットな組織文化</h4>
+        <div class="r-point reveal" style="--d:0.2s">
+          <span class="r-point-num">03</span>
+          <div>
+            <h3>少数精鋭・フラットな組織文化</h3>
             <p>少人数だからこそ、一人ひとりの裁量が大きく成長スピードも早い。垣根のないオープンな環境で、若手からベテランまでが対等に意見を出し合えるチームです。</p>
           </div>
         </div>
@@ -425,65 +340,42 @@
   </div>
 </section>
 
-<section class="contact" id="contact">
-  <div class="contact-inner">
-    <div class="section-label">Contact</div>
-    <div class="section-title">お問い合わせ</div>
-    <div class="divider"></div>
-    <div class="contact-actions">
-      <div>
-        <div class="contact-tel"><a href="tel:0494-66-2750">0494-66-2750</a></div>
-        <div class="contact-tel-note">受付時間 平日 8:00〜17:00　／　FAX：0494-66-3085</div>
-      </div>
-      <div style="margin-top:8px;color:rgba(232,245,238,0.48);font-size:13px;letter-spacing:0.2em;">── または ──</div>
-      <a href="contact.html" style="display:inline-block;padding:16px 52px;border:1px solid var(--green);color:var(--green);font-family:'Shippori Mincho',serif;font-size:14px;letter-spacing:0.15em;text-decoration:none;transition:all 0.3s;" onmouseover="this.style.background='rgba(46,158,98,0.15)'" onmouseout="this.style.background='transparent'">
-        お問い合わせフォームへ
-      </a>
+<!-- ============ CONTACT ============ -->
+<section class="contact-sec" id="contact">
+  <div class="container">
+    <div class="sec-head reveal" style="margin-bottom:20px;">
+      <p class="label">Contact</p>
+      <h2 class="sec-title-en">Get in Touch<span class="accent-dot">.</span></h2>
+      <p class="sec-title-ja">お問い合わせ</p>
+    </div>
+    <p class="reveal" style="font-size:14px; color:var(--ink-soft);">工事のご相談・お見積りのご依頼など、お気軽にお問い合わせください。</p>
+    <div><a class="contact-tel reveal" href="tel:0494-66-2750">0494-66-2750</a></div>
+    <p class="contact-note reveal">受付時間 平日 8:00〜17:00　／　FAX：0494-66-3085</p>
+    <div class="contact-actions reveal" style="--d:0.1s">
+      <a href="contact.html" class="btn btn-ink">お問い合わせフォームへ<span class="arw">→</span></a>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="footer-logo">長栄建設株式会社<span>CHOEI CONSTRUCTION CO., LTD.</span></div>
-  <div class="footer-copy">© 2025 長栄建設株式会社 All Rights Reserved.</div>
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-brand">CHOEI<br>CONSTRUCTION<em>.</em></p>
+    <div class="footer-mid">
+      <div class="footer-co">長栄建設株式会社<small>Choei Construction Co., Ltd. — Since 1978</small></div>
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <a href="#philosophy">理念</a>
+        <a href="#services">事業内容</a>
+        <a href="#works">施工実績</a>
+        <a href="#company">会社概要</a>
+        <a href="recruit.html">採用情報</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+    <p class="footer-copy">© 2026 CHOEI CONSTRUCTION CO., LTD. ALL RIGHTS RESERVED.</p>
+  </div>
 </footer>
 
-<script>
-/* スマホ用アコーディオン：対象セクションを「見出しバー＋本文」に変換（PCはCSSで従来表示） */
-(function () {
-  var ids = ['philosophy', 'services', 'works', 'company', 'recruit'];
-  ids.forEach(function (id) {
-    var sec = document.getElementById(id);
-    if (!sec || sec.classList.contains('acc')) return;
-
-    var labelEl = sec.querySelector('.section-label');
-    var titleEl = sec.querySelector('.section-title');
-    var label = labelEl ? labelEl.textContent.trim() : '';
-    var title = titleEl ? titleEl.textContent.trim() : '';
-
-    var body = document.createElement('div');
-    body.className = 'acc-body';
-    while (sec.firstChild) { body.appendChild(sec.firstChild); }
-
-    var btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'acc-toggle';
-    btn.setAttribute('aria-expanded', 'false');
-    btn.innerHTML = '<span class="acc-head"><span class="acc-label"></span><span class="acc-title"></span></span><span class="acc-icon" aria-hidden="true"></span>';
-    btn.querySelector('.acc-label').textContent = label;
-    btn.querySelector('.acc-title').textContent = title;
-
-    sec.appendChild(btn);
-    sec.appendChild(body);
-    sec.classList.add('acc');
-
-    btn.addEventListener('click', function () {
-      var open = sec.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  });
-})();
-</script>
+<script src="assets/site.js?v=1"></script>
 
 </body>
 </html>

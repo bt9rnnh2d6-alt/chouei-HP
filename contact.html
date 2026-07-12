@@ -10,7 +10,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#142c1e">
+<meta name="theme-color" content="#ffffff">
 
 <title>お問い合わせ | 長栄建設株式会社（埼玉県秩父・長瀞）</title>
 <meta name="description" content="長栄建設株式会社へのお問い合わせページです。道路・河川・橋梁・管工事など土木工事のご相談、お見積りのご依頼はお気軽にどうぞ。埼玉県秩父郡長瀞町。TEL：0494-66-2750">
@@ -23,217 +23,78 @@
 <meta property="og:url" content="https://choei-construction.co.jp/contact.html">
 <meta property="og:site_name" content="長栄建設株式会社">
 <meta property="og:locale" content="ja_JP">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Shippori+Mincho:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #0e2218;
-    --navy-mid: #162d20;
-    --green: #52c483;
-    --green-light: #80dba8;
-    --white: #e8f5ee;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Noto Serif JP', serif; background: var(--navy); color: var(--white); min-height: 100vh; }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 0; width: 100%; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 24px 60px;
-    background: rgba(14,34,24,0.97);
-    backdrop-filter: blur(2px);
-    border-bottom: 1px solid rgba(46,158,98,0.15);
-  }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 0.3em; color: var(--green); text-transform: uppercase; text-decoration: none; display: block; }
-  .nav-logo span { display: block; font-family: 'Shippori Mincho', serif; font-size: 18px; letter-spacing: 0.1em; color: var(--white); }
-  .nav-back { font-family: 'Shippori Mincho', serif; font-size: 13px; color: rgba(232,245,238,0.80); text-decoration: none; letter-spacing: 0.12em; transition: color 0.3s; display: flex; align-items: center; gap: 8px; }
-  .nav-back:hover { color: var(--green); }
-  .nav-back::before { content: '←'; font-size: 16px; }
-
-  /* HERO */
-  .page-hero {
-    padding: 160px 60px 80px;
-    background: var(--navy-mid);
-    position: relative; overflow: hidden;
-  }
-  .page-hero::before {
-    content: 'CONTACT';
-    position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
-    font-family: 'Cormorant Garamond', serif; font-size: 160px; font-weight: 300;
-    color: rgba(46,158,98,0.06); white-space: nowrap; pointer-events: none;
-  }
-  .page-hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
-  .page-hero .label { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.5em; color: var(--green); text-transform: uppercase; margin-bottom: 16px; }
-  .page-hero h1 { font-family: 'Shippori Mincho', serif; font-size: clamp(36px,5vw,60px); font-weight: 700; line-height: 1.2; }
-  .page-hero p { margin-top: 20px; font-size: 15px; line-height: 2; color: rgba(232,245,238,0.80); }
-  .divider { width: 60px; height: 1px; background: var(--green); margin: 28px 0; }
-
-  /* FORM SECTION */
-  .form-section { padding: 80px 60px 120px; background: var(--navy); }
-  .form-wrap { max-width: 760px; margin: 0 auto; }
-
-  .form-group { margin-bottom: 36px; }
-  .form-group label {
-    display: block;
-    font-family: 'Shippori Mincho', serif; font-size: 13px; font-weight: 700;
-    letter-spacing: 0.1em; color: var(--green-light);
-    margin-bottom: 10px;
-  }
-  .form-group label .required {
-    display: inline-block; margin-left: 8px;
-    font-size: 10px; letter-spacing: 0.15em;
-    background: var(--green); color: var(--navy);
-    padding: 2px 8px; font-weight: 700;
-  }
-  .form-group label .optional {
-    display: inline-block; margin-left: 8px;
-    font-size: 10px; letter-spacing: 0.15em;
-    border: 1px solid rgba(46,158,98,0.45); color: rgba(232,245,238,0.60);
-    padding: 2px 8px;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  select,
-  textarea {
-    width: 100%;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(46,158,98,0.25);
-    color: var(--white);
-    font-family: 'Noto Serif JP', serif; font-size: 15px;
-    padding: 16px 20px;
-    outline: none;
-    transition: border-color 0.3s, background 0.3s;
-    appearance: none;
-    -webkit-appearance: none;
-    border-radius: 0;
-  }
-  input:focus, select:focus, textarea:focus {
-    border-color: var(--green);
-    background: rgba(46,158,98,0.08);
-  }
-  input::placeholder, textarea::placeholder { color: rgba(232,245,238,0.38); }
-  textarea { min-height: 180px; resize: vertical; line-height: 1.8; }
-
-  .select-wrap { position: relative; }
-  .select-wrap::after {
-    content: '▾'; position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
-    color: var(--green); pointer-events: none; font-size: 16px;
-  }
-  select option { background: #162d20; color: var(--white); }
-
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-
-  /* PRIVACY */
-  .privacy-box {
-    background: rgba(46,158,98,0.07);
-    border: 1px solid rgba(46,158,98,0.20);
-    padding: 28px 32px; margin-bottom: 40px;
-  }
-  .privacy-box h3 { font-family: 'Shippori Mincho', serif; font-size: 14px; font-weight: 700; color: var(--green-light); margin-bottom: 12px; letter-spacing: 0.1em; }
-  .privacy-box p { font-size: 13px; line-height: 2; color: rgba(238,244,240,0.6); }
-
-  .agree-row { display: flex; align-items: center; gap: 14px; margin-bottom: 48px; cursor: pointer; }
-  .agree-row input[type="checkbox"] { display: none; }
-  .custom-check {
-    width: 20px; height: 20px; flex-shrink: 0;
-    border: 1px solid rgba(46,158,98,0.45);
-    background: rgba(255,255,255,0.06);
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.3s;
-  }
-  .agree-row input:checked + .custom-check { background: var(--green); border-color: var(--green); }
-  .agree-row input:checked + .custom-check::after { content: '✓'; color: var(--navy); font-size: 13px; font-weight: 700; }
-  .agree-label { font-size: 14px; color: rgba(232,245,238,0.90); line-height: 1.6; }
-
-  /* SUBMIT */
-  .submit-btn {
-    display: block; width: 100%;
-    padding: 20px;
-    background: var(--green); color: var(--navy);
-    font-family: 'Shippori Mincho', serif; font-size: 16px; font-weight: 700; letter-spacing: 0.2em;
-    border: none; cursor: pointer;
-    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
-    transition: all 0.3s;
-  }
-  .submit-btn:hover { background: var(--green-light); transform: translateY(-2px); }
-  .submit-btn:disabled { background: rgba(76,175,125,0.3); cursor: not-allowed; transform: none; color: rgba(10,26,16,0.5); }
-
-  /* COMPLETE */
-  .complete-msg {
-    display: none; text-align: center; padding: 80px 40px;
-  }
-  .complete-msg .icon { font-size: 64px; margin-bottom: 24px; }
-  .complete-msg h2 { font-family: 'Shippori Mincho', serif; font-size: 28px; font-weight: 700; color: var(--green-light); margin-bottom: 16px; }
-  .complete-msg p { font-size: 15px; line-height: 2; color: rgba(232,245,238,0.80); }
-  .complete-msg a { display: inline-block; margin-top: 40px; padding: 14px 44px; border: 1px solid var(--green); color: var(--green); font-family: 'Shippori Mincho', serif; font-size: 14px; letter-spacing: 0.15em; text-decoration: none; transition: all 0.3s; }
-  .complete-msg a:hover { background: rgba(46,158,98,0.15); }
-
-  /* SIDE INFO */
-  .contact-info { max-width: 760px; margin: 0 auto 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-  .info-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(76,175,125,0.12); padding: 28px 32px; }
-  .info-card .icon { font-size: 24px; margin-bottom: 12px; }
-  .info-card h4 { font-family: 'Shippori Mincho', serif; font-size: 13px; font-weight: 700; color: var(--green); letter-spacing: 0.1em; margin-bottom: 8px; }
-  .info-card p { font-size: 15px; color: var(--white); line-height: 1.8; }
-  .info-card small { display: block; font-size: 12px; color: rgba(232,245,238,0.50); margin-top: 4px; letter-spacing: 0.1em; }
-
-  /* FOOTER */
-  footer { background: #081410; padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(46,158,98,0.20); }
-  .footer-logo { font-family: 'Shippori Mincho', serif; font-size: 16px; font-weight: 700; }
-  .footer-logo span { display: block; font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.4em; color: var(--green); margin-top: 4px; }
-  .footer-copy { font-size: 12px; color: rgba(232,245,238,0.38); }
-
-  @media (max-width: 700px) {
-    nav { padding: 20px 24px; }
-    .page-hero, .form-section { padding-left: 24px; padding-right: 24px; }
-    .form-row { grid-template-columns: 1fr; }
-    .contact-info { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
-  }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=1">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">CHOEI CONSTRUCTION<span>長栄建設株式会社</span></a>
-  <a href="index.html" class="nav-back">トップページに戻る</a>
-</nav>
+<header class="site-header">
+  <a href="index.html" class="brand" aria-label="長栄建設株式会社 トップページ">
+    <span class="brand-en">CHOEI CONSTRUCTION</span>
+    <span class="brand-ja">長栄建設株式会社</span>
+  </a>
+  <nav class="global-nav" aria-label="グローバルナビゲーション">
+    <a href="index.html#philosophy">理念</a>
+    <a href="index.html#services">事業内容</a>
+    <a href="index.html#works">施工実績</a>
+    <a href="index.html#company">会社概要</a>
+    <a href="recruit.html">採用情報</a>
+    <a href="contact.html" class="btn btn-ink btn-sm">お問い合わせ<span class="arw">→</span></a>
+  </nav>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menuOverlay" aria-label="メニューを開閉">
+    <span></span><span></span>
+  </button>
+</header>
 
+<div class="menu-overlay" id="menuOverlay">
+  <nav aria-label="メニュー">
+    <a href="index.html" style="--i:0">Top<small>トップ</small></a>
+    <a href="index.html#philosophy" style="--i:1">Philosophy<small>理念</small></a>
+    <a href="index.html#services" style="--i:2">Services<small>事業内容</small></a>
+    <a href="index.html#works" style="--i:3">Works<small>施工実績</small></a>
+    <a href="index.html#company" style="--i:4">Company<small>会社概要</small></a>
+    <a href="recruit.html" style="--i:5">Recruit<small>採用情報</small></a>
+    <a href="contact.html" style="--i:6">Contact<small>お問い合わせ</small></a>
+  </nav>
+  <div class="menu-foot">CHOEI CONSTRUCTION CO., LTD. — SINCE 1978</div>
+</div>
+
+<!-- HERO -->
 <div class="page-hero">
-  <div class="page-hero-inner">
-    <div class="label">Contact</div>
-    <h1>お問い合わせ</h1>
-    <div class="divider"></div>
-    <p>工事のご相談・お見積りのご依頼など、お気軽にお問い合わせください。<br>内容を確認の上、担当者よりご連絡いたします。</p>
+  <div class="container">
+    <p class="label">Contact</p>
+    <h1>
+      <span class="page-hero-en">Get in<br>Touch<span class="green">.</span></span>
+      <span class="page-hero-ja">お問い合わせ</span>
+    </h1>
+    <p class="page-hero-lead">工事のご相談・お見積りのご依頼など、お気軽にお問い合わせください。<br>内容を確認の上、担当者よりご連絡いたします。</p>
   </div>
 </div>
 
-<section class="form-section">
-  <div class="form-wrap">
+<section class="form-section" style="padding-top: 20px;">
+  <div class="container">
+    <div class="form-wrap">
 
-    <!-- 連絡先カード -->
-    <div class="contact-info">
-      <div class="info-card">
-        <div class="icon">📞</div>
-        <h4>お電話でのお問い合わせ</h4>
-        <p>0494-66-2750</p>
-        <small>受付時間 平日 8:00〜17:00</small>
-        <small>FAX：0494-66-3085</small>
+      <!-- 連絡先カード -->
+      <div class="info-cards reveal">
+        <div class="info-card">
+          <h4>Tel / Fax</h4>
+          <p class="big"><a href="tel:0494-66-2750" style="text-decoration:none;">0494-66-2750</a></p>
+          <small>受付時間 平日 8:00〜17:00</small>
+          <small>FAX：0494-66-3085</small>
+        </div>
+        <div class="info-card">
+          <h4>Address</h4>
+          <p>埼玉県秩父郡長瀞町<br>大字野上下郷1920番地</p>
+          <small>長栄建設株式会社</small>
+        </div>
       </div>
-      <div class="info-card">
-        <div class="icon">📍</div>
-        <h4>所在地</h4>
-        <p>埼玉県秩父郡長瀞町<br>大字野上下郷1920番地</p>
-        <small>長栄建設株式会社</small>
-      </div>
-    </div>
 
-    <!-- アクセスマップ -->
-    <div style="margin-bottom:48px;">
-      <h3 style="font-family:'Shippori Mincho',serif;font-size:14px;font-weight:700;color:var(--green-light);letter-spacing:0.1em;margin-bottom:16px;">📍 アクセスマップ</h3>
-      <div style="border:1px solid rgba(46,158,98,0.25);overflow:hidden;">
+      <!-- アクセスマップ -->
+      <div class="map-box reveal">
         <iframe
           src="https://maps.google.com/maps?q=36.1239417,139.1087393&z=16&output=embed&hl=ja"
           width="100%"
@@ -241,72 +102,86 @@
           style="border:0;display:block;"
           allowfullscreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
+          referrerpolicy="no-referrer-when-downgrade"
+          title="長栄建設株式会社 アクセスマップ">
         </iframe>
       </div>
-      <p style="margin-top:10px;font-size:12px;color:rgba(232,245,238,0.50);letter-spacing:0.05em;">埼玉県秩父郡長瀞町大字野上下郷1920番地</p>
+      <p class="map-note">埼玉県秩父郡長瀞町大字野上下郷1920番地</p>
+
+      <!-- フォーム -->
+      <div id="formArea">
+        <form id="contactForm" action="https://formspree.io/f/mwvwkrlb" method="POST" onsubmit="handleSubmit(event)" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>お名前 <span class="badge-req">必須</span></label>
+              <input type="text" id="name" name="お名前" placeholder="例：建設 太郎" required>
+            </div>
+            <div class="form-group">
+              <label>会社名・団体名 <span class="badge-opt">任意</span></label>
+              <input type="text" id="company" name="会社名・団体名" placeholder="例：○○株式会社">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>メールアドレス <span class="badge-req">必須</span></label>
+              <input type="email" id="email" name="email" placeholder="例：info@example.com" required>
+            </div>
+            <div class="form-group">
+              <label>電話番号 <span class="badge-opt">任意</span></label>
+              <input type="tel" id="tel" name="電話番号" placeholder="例：0494-66-XXXX">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>お問い合わせ内容 <span class="badge-req">必須</span></label>
+            <textarea id="message" name="お問い合わせ内容" placeholder="お問い合わせ内容をご記入ください。" required></textarea>
+          </div>
+
+          <div class="privacy-box">
+            <h3>個人情報の取り扱いについて</h3>
+            <p>ご入力いただいた個人情報は、お問い合わせへの回答および当社サービスのご案内のみに利用いたします。第三者への提供・開示は行いません。</p>
+          </div>
+
+          <label class="agree-row" for="agree">
+            <input type="checkbox" id="agree">
+            <span class="custom-check"></span>
+            <span class="agree-label">個人情報の取り扱いに同意する</span>
+          </label>
+
+          <button type="submit" class="submit-btn" id="submitBtn" disabled>送　信　す　る</button>
+        </form>
+      </div>
+
+      <!-- 送信完了メッセージ -->
+      <div class="complete-msg" id="completeMsg">
+        <div class="icon">✅</div>
+        <h2>送信が完了しました</h2>
+        <p>お問い合わせいただきありがとうございます。<br>内容を確認の上、担当者より3営業日以内にご連絡いたします。</p>
+        <a href="index.html" class="btn btn-outline">トップページに戻る</a>
+      </div>
+
     </div>
-
-    <!-- フォーム -->
-    <div id="formArea">
-      <form id="contactForm" action="https://formspree.io/f/mwvwkrlb" method="POST" onsubmit="handleSubmit(event)" novalidate>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>お名前 <span class="required">必須</span></label>
-            <input type="text" id="name" name="お名前" placeholder="例：建設 太郎" required>
-          </div>
-          <div class="form-group">
-            <label>会社名・団体名 <span class="optional">任意</span></label>
-            <input type="text" id="company" name="会社名・団体名" placeholder="例：○○株式会社">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>メールアドレス <span class="required">必須</span></label>
-            <input type="email" id="email" name="email" placeholder="例：info@example.com" required>
-          </div>
-          <div class="form-group">
-            <label>電話番号 <span class="optional">任意</span></label>
-            <input type="tel" id="tel" name="電話番号" placeholder="例：0494-66-XXXX">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>お問い合わせ内容 <span class="required">必須</span></label>
-          <textarea id="message" name="お問い合わせ内容" placeholder="お問い合わせ内容をご記入ください。" required></textarea>
-        </div>
-
-        <div class="privacy-box">
-          <h3>個人情報の取り扱いについて</h3>
-          <p>ご入力いただいた個人情報は、お問い合わせへの回答および当社サービスのご案内のみに利用いたします。第三者への提供・開示は行いません。</p>
-        </div>
-
-        <label class="agree-row" for="agree">
-          <input type="checkbox" id="agree">
-          <span class="custom-check"></span>
-          <span class="agree-label">個人情報の取り扱いに同意する</span>
-        </label>
-
-        <button type="submit" class="submit-btn" id="submitBtn" disabled>送　信　す　る</button>
-      </form>
-    </div>
-
-    <!-- 送信完了メッセージ -->
-    <div class="complete-msg" id="completeMsg">
-      <div class="icon">✅</div>
-      <h2>送信が完了しました</h2>
-      <p>お問い合わせいただきありがとうございます。<br>内容を確認の上、担当者より3営業日以内にご連絡いたします。</p>
-      <a href="index.html">トップページに戻る</a>
-    </div>
-
   </div>
 </section>
 
-<footer>
-  <div class="footer-logo">長栄建設株式会社<span>CHOEI CONSTRUCTION CO., LTD.</span></div>
-  <div class="footer-copy">© 2025 長栄建設株式会社 All Rights Reserved.</div>
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-brand">CHOEI<br>CONSTRUCTION<em>.</em></p>
+    <div class="footer-mid">
+      <div class="footer-co">長栄建設株式会社<small>Choei Construction Co., Ltd. — Since 1978</small></div>
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <a href="index.html#philosophy">理念</a>
+        <a href="index.html#services">事業内容</a>
+        <a href="index.html#works">施工実績</a>
+        <a href="index.html#company">会社概要</a>
+        <a href="recruit.html">採用情報</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+    <p class="footer-copy">© 2026 CHOEI CONSTRUCTION CO., LTD. ALL RIGHTS RESERVED.</p>
+  </div>
 </footer>
 
 <script>
@@ -358,5 +233,6 @@
     }
   }
 </script>
+<script src="assets/site.js?v=1"></script>
 </body>
 </html>

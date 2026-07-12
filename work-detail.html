@@ -10,144 +10,70 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#142c1e">
+<meta name="theme-color" content="#ffffff">
 
 <title>施工実績詳細 | 長栄建設株式会社</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700;900&family=Shippori+Mincho:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #0e2218;
-    --navy-mid: #162d20;
-    --green: #52c483;
-    --green-light: #80dba8;
-    --white: #e8f5ee;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Noto Serif JP', serif; background: var(--navy); color: var(--white); min-height: 100vh; }
-
-  nav {
-    position: fixed; top: 0; width: 100%; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 24px 60px;
-    background: rgba(10,26,16,0.97);
-    backdrop-filter: blur(2px);
-  }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 0.3em; color: var(--green); text-transform: uppercase; }
-  .nav-logo span { display: block; font-family: 'Shippori Mincho', serif; font-size: 18px; letter-spacing: 0.1em; color: var(--white); }
-
-  .detail-wrap {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 140px 40px 80px;
-  }
-
-  .back-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Shippori Mincho', serif;
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    color: var(--green);
-    text-decoration: none;
-    margin-bottom: 48px;
-    transition: opacity 0.3s;
-  }
-  .back-btn:hover { opacity: 0.7; }
-  .back-btn::before { content: '←'; }
-
-  .detail-category {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 12px;
-    letter-spacing: 0.4em;
-    color: var(--green);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  .detail-title {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 26px;
-    font-weight: 700;
-    line-height: 1.6;
-    margin-bottom: 40px;
-  }
-
-  .detail-img {
-    width: 100%;
-    max-height: 520px;
-    object-fit: cover;
-    display: block;
-    margin-bottom: 48px;
-    border: 1px solid rgba(46,158,98,0.2);
-  }
-
-  .detail-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .detail-table tr {
-    border-bottom: 1px solid rgba(46,158,98,0.15);
-  }
-  .detail-table th {
-    width: 160px;
-    padding: 20px 0;
-    font-family: 'Shippori Mincho', serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--green);
-    letter-spacing: 0.1em;
-    text-align: left;
-    vertical-align: top;
-  }
-  .detail-table td {
-    padding: 20px 0 20px 32px;
-    font-size: 15px;
-    line-height: 1.8;
-    color: rgba(232,245,238,0.90);
-  }
-
-  .not-found {
-    text-align: center;
-    padding: 80px 0;
-    color: rgba(232,245,238,0.5);
-    font-size: 16px;
-  }
-
-  footer {
-    text-align: center;
-    padding: 40px;
-    font-size: 12px;
-    color: rgba(232,245,238,0.3);
-    letter-spacing: 0.1em;
-    border-top: 1px solid rgba(46,158,98,0.1);
-    margin-top: 80px;
-  }
-
-  @media (max-width: 768px) {
-    nav { padding: 20px 24px; }
-    .detail-wrap { padding: 120px 24px 60px; }
-    .detail-title { font-size: 20px; }
-    .detail-table th { width: 110px; font-size: 12px; }
-    .detail-table td { padding-left: 16px; font-size: 14px; }
-  }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=1">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" style="text-decoration:none;">
-    <div class="nav-logo">CHOEI CONSTRUCTION<span>長栄建設株式会社</span></div>
+<header class="site-header">
+  <a href="index.html" class="brand" aria-label="長栄建設株式会社 トップページ">
+    <span class="brand-en">CHOEI CONSTRUCTION</span>
+    <span class="brand-ja">長栄建設株式会社</span>
   </a>
-</nav>
+  <nav class="global-nav" aria-label="グローバルナビゲーション">
+    <a href="index.html#philosophy">理念</a>
+    <a href="index.html#services">事業内容</a>
+    <a href="index.html#works">施工実績</a>
+    <a href="index.html#company">会社概要</a>
+    <a href="recruit.html">採用情報</a>
+    <a href="contact.html" class="btn btn-ink btn-sm">お問い合わせ<span class="arw">→</span></a>
+  </nav>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menuOverlay" aria-label="メニューを開閉">
+    <span></span><span></span>
+  </button>
+</header>
 
-<div class="detail-wrap">
-  <a href="index.html#works" class="back-btn">施工実績一覧に戻る</a>
-  <div id="detail-content"></div>
+<div class="menu-overlay" id="menuOverlay">
+  <nav aria-label="メニュー">
+    <a href="index.html" style="--i:0">Top<small>トップ</small></a>
+    <a href="index.html#philosophy" style="--i:1">Philosophy<small>理念</small></a>
+    <a href="index.html#services" style="--i:2">Services<small>事業内容</small></a>
+    <a href="index.html#works" style="--i:3">Works<small>施工実績</small></a>
+    <a href="index.html#company" style="--i:4">Company<small>会社概要</small></a>
+    <a href="recruit.html" style="--i:5">Recruit<small>採用情報</small></a>
+    <a href="contact.html" style="--i:6">Contact<small>お問い合わせ</small></a>
+  </nav>
+  <div class="menu-foot">CHOEI CONSTRUCTION CO., LTD. — SINCE 1978</div>
 </div>
 
-<footer>© 長栄建設株式会社. All Rights Reserved.</footer>
+<main class="detail-wrap">
+  <a href="index.html#works" class="back-link">施工実績一覧に戻る</a>
+  <div id="detail-content"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-brand">CHOEI<br>CONSTRUCTION<em>.</em></p>
+    <div class="footer-mid">
+      <div class="footer-co">長栄建設株式会社<small>Choei Construction Co., Ltd. — Since 1978</small></div>
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <a href="index.html#philosophy">理念</a>
+        <a href="index.html#services">事業内容</a>
+        <a href="index.html#works">施工実績</a>
+        <a href="index.html#company">会社概要</a>
+        <a href="recruit.html">採用情報</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+    <p class="footer-copy">© 2026 CHOEI CONSTRUCTION CO., LTD. ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
 
 <script>
   /* ===== 施工実績データ（index.htmlと同じ） ===== */
@@ -183,12 +109,13 @@
     rows += '<tr><th>工種</th><td>' + w.category + '</td></tr>';
 
     content.innerHTML =
-      '<div class="detail-category">' + w.category + '</div>' +
+      '<div class="detail-category"><span class="tag tag-accent">' + w.category + '</span><span class="tag">' + w.year + '</span></div>' +
       '<h1 class="detail-title">' + w.title + '</h1>' +
       '<img class="detail-img" src="' + w.image + '" alt="' + w.title + '">' +
       '<table class="detail-table">' + rows + '</table>';
   }
 </script>
+<script src="assets/site.js?v=1"></script>
 
 </body>
 </html>

@@ -10,7 +10,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#142c1e">
+<meta name="theme-color" content="#ffffff">
 
 <title>採用情報・求人 | 長栄建設株式会社（埼玉県秩父・長瀞）</title>
 <meta name="description" content="長栄建設株式会社の採用情報ページです。土木施工管理技士・重機オペレーター・現場作業員を募集中。未経験者歓迎。週休二日制・賞与有・資格取得支援制度あり。埼玉県秩父郡長瀞町。">
@@ -54,226 +54,95 @@
   "industry": "建設・土木"
 }
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Shippori+Mincho:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #0e2218;
-    --navy-mid: #162d20;
-    --green: #52c483;
-    --green-light: #80dba8;
-    --white: #e8f5ee;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Noto Serif JP', serif; background: var(--navy); color: var(--white); min-height: 100vh; }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 0; width: 100%; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 24px 60px;
-    background: rgba(14,34,24,0.97);
-    backdrop-filter: blur(2px);
-    border-bottom: 1px solid rgba(46,158,98,0.15);
-  }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 0.3em; color: var(--green); text-transform: uppercase; text-decoration: none; display: block; }
-  .nav-logo span { display: block; font-family: 'Shippori Mincho', serif; font-size: 18px; letter-spacing: 0.1em; color: var(--white); }
-  .nav-back { font-family: 'Shippori Mincho', serif; font-size: 13px; color: rgba(232,245,238,0.80); text-decoration: none; letter-spacing: 0.12em; transition: color 0.3s; display: flex; align-items: center; gap: 8px; }
-  .nav-back:hover { color: var(--green); }
-  .nav-back::before { content: '←'; font-size: 16px; }
-
-  /* PAGE HERO */
-  .page-hero {
-    padding: 160px 60px 80px;
-    background: var(--navy-mid);
-    position: relative; overflow: hidden;
-  }
-  .page-hero::before {
-    content: 'RECRUIT';
-    position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
-    font-family: 'Cormorant Garamond', serif; font-size: 160px; font-weight: 300;
-    color: rgba(46,158,98,0.06); white-space: nowrap; pointer-events: none;
-  }
-  .page-hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
-  .label { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.5em; color: var(--green); text-transform: uppercase; margin-bottom: 16px; }
-  .page-hero h1 { font-family: 'Shippori Mincho', serif; font-size: clamp(36px,5vw,60px); font-weight: 700; line-height: 1.2; }
-  .page-hero p { margin-top: 20px; font-size: 15px; line-height: 2; color: rgba(232,245,238,0.80); }
-  .divider { width: 60px; height: 1px; background: var(--green); margin: 28px 0; }
-
-  /* APPEAL SECTION */
-  .appeal { padding: 80px 60px; background: var(--navy); }
-  .appeal-inner { max-width: 1100px; margin: 0 auto; }
-  .section-label { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.5em; color: var(--green); text-transform: uppercase; margin-bottom: 12px; }
-  .section-title { font-family: 'Shippori Mincho', serif; font-size: clamp(26px,3.5vw,40px); font-weight: 700; margin-bottom: 48px; }
-
-  .appeal-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-bottom: 80px; }
-  .appeal-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(46,158,98,0.20);
-    padding: 44px 36px; position: relative; overflow: hidden; transition: all 0.4s;
-  }
-  .appeal-card::before { content:''; position:absolute; inset:0; background: linear-gradient(135deg,rgba(46,158,98,0.10),transparent); opacity:0; transition:opacity 0.4s; }
-  .appeal-card:hover { border-color: rgba(76,175,125,0.45); transform: translateY(-4px); }
-  .appeal-card:hover::before { opacity: 1; }
-  .appeal-num { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: rgba(46,158,98,0.20); line-height: 1; margin-bottom: 20px; }
-  .appeal-icon { font-size: 28px; margin-bottom: 16px; }
-  .appeal-card h3 { font-family: 'Shippori Mincho', serif; font-size: 18px; font-weight: 700; color: var(--green-light); margin-bottom: 14px; }
-  .appeal-card p { font-size: 14px; line-height: 2; color: rgba(232,245,238,0.72); }
-
-  /* JOBS */
-  .jobs { padding: 0 60px 80px; background: var(--navy); }
-  .jobs-inner { max-width: 1100px; margin: 0 auto; }
-  .job-card {
-    border: 1px solid rgba(46,158,98,0.20);
-    margin-bottom: 24px; overflow: hidden; transition: border-color 0.3s;
-  }
-  .job-card:hover { border-color: rgba(46,158,98,0.45); }
-  .job-header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 28px 36px; background: rgba(255,255,255,0.06);
-    cursor: pointer; transition: background 0.3s;
-  }
-  .job-header:hover { background: rgba(46,158,98,0.07); }
-  .job-header-left { display: flex; align-items: center; gap: 20px; }
-  .job-tag { font-family: 'Cormorant Garamond', serif; font-size: 10px; letter-spacing: 0.4em; color: var(--navy); background: var(--green); padding: 4px 14px; text-transform: uppercase; }
-  .job-title { font-family: 'Shippori Mincho', serif; font-size: 20px; font-weight: 700; }
-  .job-toggle { font-size: 20px; color: var(--green); transition: transform 0.3s; }
-  .job-card.open .job-toggle { transform: rotate(45deg); }
-  .job-body { display: none; padding: 0 36px 36px; }
-  .job-card.open .job-body { display: block; }
-  .job-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
-  .job-table tr { border-bottom: 1px solid rgba(46,158,98,0.15); }
-  .job-table th { width: 160px; padding: 16px 0; font-family: 'Shippori Mincho', serif; font-size: 13px; font-weight: 700; color: var(--green); text-align: left; letter-spacing: 0.08em; vertical-align: top; }
-  .job-table td { padding: 16px 0 16px 32px; font-size: 14px; line-height: 1.9; color: rgba(232,245,238,0.90); }
-
-  /* FORM SECTION */
-  .form-section { padding: 80px 60px 120px; background: var(--navy-mid); }
-  .form-wrap { max-width: 760px; margin: 0 auto; }
-  .form-section .section-label, .form-section .section-title { text-align: center; }
-  .form-section .divider { margin: 28px auto 56px; }
-
-  .form-group { margin-bottom: 32px; }
-  .form-group label { display: block; font-family: 'Shippori Mincho', serif; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: var(--green-light); margin-bottom: 10px; }
-  .form-group label .required { display: inline-block; margin-left: 8px; font-size: 10px; letter-spacing: 0.15em; background: var(--green); color: var(--navy); padding: 2px 8px; font-weight: 700; }
-  .form-group label .optional { display: inline-block; margin-left: 8px; font-size: 10px; letter-spacing: 0.15em; border: 1px solid rgba(46,158,98,0.45); color: rgba(232,245,238,0.60); padding: 2px 8px; }
-
-  input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select, textarea {
-    width: 100%; background: rgba(255,255,255,0.07); border: 1px solid rgba(46,158,98,0.25);
-    color: var(--white); font-family: 'Noto Serif JP', serif; font-size: 15px;
-    padding: 16px 20px; outline: none; transition: border-color 0.3s, background 0.3s;
-    appearance: none; -webkit-appearance: none; border-radius: 0;
-  }
-  input:focus, select:focus, textarea:focus { border-color: var(--green); background: rgba(46,158,98,0.08); }
-  input::placeholder, textarea::placeholder { color: rgba(232,245,238,0.38); }
-  textarea { min-height: 140px; resize: vertical; line-height: 1.8; }
-
-  .select-wrap { position: relative; }
-  .select-wrap::after { content: '▾'; position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: var(--green); pointer-events: none; font-size: 16px; }
-  select option { background: #162d20; color: var(--white); }
-
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-
-  .radio-group { display: flex; flex-wrap: wrap; gap: 12px; }
-  .radio-label { display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 12px 20px; border: 1px solid rgba(46,158,98,0.25); background: rgba(255,255,255,0.06); transition: all 0.3s; font-size: 14px; }
-  .radio-label:hover { border-color: rgba(46,158,98,0.55); background: rgba(46,158,98,0.08); }
-  .radio-label input[type="radio"] { display: none; }
-  .radio-dot { width: 14px; height: 14px; border: 1px solid rgba(46,158,98,0.55); border-radius: 50%; flex-shrink: 0; transition: all 0.3s; }
-  .radio-label input:checked ~ .radio-dot { background: var(--green); border-color: var(--green); }
-  .radio-label:has(input:checked) { border-color: var(--green); background: rgba(46,158,98,0.15); }
-
-  .privacy-box { background: rgba(46,158,98,0.07); border: 1px solid rgba(46,158,98,0.20); padding: 28px 32px; margin-bottom: 36px; }
-  .privacy-box h3 { font-family: 'Shippori Mincho', serif; font-size: 14px; font-weight: 700; color: var(--green-light); margin-bottom: 12px; }
-  .privacy-box p { font-size: 13px; line-height: 2; color: rgba(238,244,240,0.6); }
-
-  .agree-row { display: flex; align-items: center; gap: 14px; margin-bottom: 44px; cursor: pointer; }
-  .agree-row input[type="checkbox"] { display: none; }
-  .custom-check { width: 20px; height: 20px; flex-shrink: 0; border: 1px solid rgba(46,158,98,0.45); background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
-  .agree-row input:checked + .custom-check { background: var(--green); border-color: var(--green); }
-  .agree-row input:checked + .custom-check::after { content: '✓'; color: var(--navy); font-size: 13px; font-weight: 700; }
-  .agree-label { font-size: 14px; color: rgba(232,245,238,0.90); }
-
-  .submit-btn { display: block; width: 100%; padding: 20px; background: var(--green); color: var(--navy); font-family: 'Shippori Mincho', serif; font-size: 16px; font-weight: 700; letter-spacing: 0.2em; border: none; cursor: pointer; clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%); transition: all 0.3s; }
-  .submit-btn:hover { background: var(--green-light); transform: translateY(-2px); }
-  .submit-btn:disabled { background: rgba(76,175,125,0.3); cursor: not-allowed; transform: none; color: rgba(10,26,16,0.5); }
-
-  /* COMPLETE */
-  .complete-msg { display: none; text-align: center; padding: 80px 40px; }
-  .complete-msg .icon { font-size: 64px; margin-bottom: 24px; }
-  .complete-msg h2 { font-family: 'Shippori Mincho', serif; font-size: 28px; font-weight: 700; color: var(--green-light); margin-bottom: 16px; }
-  .complete-msg p { font-size: 15px; line-height: 2; color: rgba(232,245,238,0.80); }
-  .complete-msg a { display: inline-block; margin-top: 40px; padding: 14px 44px; border: 1px solid var(--green); color: var(--green); font-family: 'Shippori Mincho', serif; font-size: 14px; letter-spacing: 0.15em; text-decoration: none; transition: all 0.3s; }
-  .complete-msg a:hover { background: rgba(46,158,98,0.15); }
-
-  /* FOOTER */
-  footer { background: #081410; padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(46,158,98,0.20); }
-  .footer-logo { font-family: 'Shippori Mincho', serif; font-size: 16px; font-weight: 700; }
-  .footer-logo span { display: block; font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.4em; color: var(--green); margin-top: 4px; }
-  .footer-copy { font-size: 12px; color: rgba(232,245,238,0.38); }
-
-  @media (max-width: 700px) {
-    nav { padding: 20px 24px; }
-    .page-hero, .appeal, .jobs, .form-section { padding-left: 24px; padding-right: 24px; }
-    .appeal-grid { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    .job-header { flex-direction: column; align-items: flex-start; gap: 12px; }
-    footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
-  }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=1">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">CHOEI CONSTRUCTION<span>長栄建設株式会社</span></a>
-  <a href="index.html" class="nav-back">トップページに戻る</a>
-</nav>
+<header class="site-header">
+  <a href="index.html" class="brand" aria-label="長栄建設株式会社 トップページ">
+    <span class="brand-en">CHOEI CONSTRUCTION</span>
+    <span class="brand-ja">長栄建設株式会社</span>
+  </a>
+  <nav class="global-nav" aria-label="グローバルナビゲーション">
+    <a href="index.html#philosophy">理念</a>
+    <a href="index.html#services">事業内容</a>
+    <a href="index.html#works">施工実績</a>
+    <a href="index.html#company">会社概要</a>
+    <a href="recruit.html">採用情報</a>
+    <a href="contact.html" class="btn btn-ink btn-sm">お問い合わせ<span class="arw">→</span></a>
+  </nav>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menuOverlay" aria-label="メニューを開閉">
+    <span></span><span></span>
+  </button>
+</header>
+
+<div class="menu-overlay" id="menuOverlay">
+  <nav aria-label="メニュー">
+    <a href="index.html" style="--i:0">Top<small>トップ</small></a>
+    <a href="index.html#philosophy" style="--i:1">Philosophy<small>理念</small></a>
+    <a href="index.html#services" style="--i:2">Services<small>事業内容</small></a>
+    <a href="index.html#works" style="--i:3">Works<small>施工実績</small></a>
+    <a href="index.html#company" style="--i:4">Company<small>会社概要</small></a>
+    <a href="recruit.html" style="--i:5">Recruit<small>採用情報</small></a>
+    <a href="contact.html" style="--i:6">Contact<small>お問い合わせ</small></a>
+  </nav>
+  <div class="menu-foot">CHOEI CONSTRUCTION CO., LTD. — SINCE 1978</div>
+</div>
 
 <!-- HERO -->
 <div class="page-hero">
-  <div class="page-hero-inner">
-    <div class="label">Recruit</div>
-    <h1>採用エントリー</h1>
-    <div class="divider"></div>
-    <p>長栄建設では、地域インフラを共に支える仲間を募集しています。<br>土木の仕事に情熱を持つ方のご応募をお待ちしております。<br>未経験者も歓迎です。一緒に成長していきましょう。</p>
+  <div class="container">
+    <p class="label">Recruit</p>
+    <h1>
+      <span class="page-hero-en">Join<br>Our Team<span class="green">.</span></span>
+      <span class="page-hero-ja">採用エントリー</span>
+    </h1>
+    <p class="page-hero-lead">長栄建設では、地域インフラを共に支える仲間を募集しています。<br>土木の仕事に情熱を持つ方のご応募をお待ちしております。<br>未経験者も歓迎です。一緒に成長していきましょう。</p>
   </div>
 </div>
 
 <!-- APPEAL -->
-<section class="appeal">
-  <div class="appeal-inner">
-    <div class="section-label">Why Choose Us</div>
-    <div class="section-title">長栄建設で働く魅力</div>
+<section class="appeal" style="padding-top: 20px;">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="label">Why Choose Us</p>
+      <h2 class="sec-title-en">Why Us<span class="accent-dot">.</span></h2>
+      <p class="sec-title-ja">長栄建設で働く魅力</p>
+    </div>
     <div class="appeal-grid">
-      <div class="appeal-card">
-        <div class="appeal-num">01</div>
-        <div class="appeal-icon">📜</div>
+      <div class="appeal-card reveal">
+        <p class="appeal-num">01</p>
         <h3>資格取得支援制度</h3>
         <p>1・2級土木施工管理技士をはじめ、各種資格の取得費用を会社が全額負担。試験対策の勉強時間も考慮した働き方を支援します。</p>
       </div>
-      <div class="appeal-card">
-        <div class="appeal-num">02</div>
-        <div class="appeal-icon">🏛️</div>
+      <div class="appeal-card reveal" style="--d:0.1s">
+        <p class="appeal-num">02</p>
         <h3>安定した公共工事受注</h3>
         <p>受注の約9割が埼玉県・市・町の公共工事。景気に左右されにくく、創業半世紀の信頼と実績で安定した雇用を提供しています。</p>
       </div>
-      <div class="appeal-card">
-        <div class="appeal-num">03</div>
-        <div class="appeal-icon">🤝</div>
+      <div class="appeal-card reveal" style="--d:0.2s">
+        <p class="appeal-num">03</p>
         <h3>少数精鋭・フラットな組織文化</h3>
         <p>少人数だからこそ、一人ひとりの裁量が大きく成長スピードも早い。垣根のないオープンな環境で、若手からベテランまでが対等に意見を出し合えるチームです。</p>
       </div>
     </div>
-
-    <!-- 募集要項 -->
-    <div class="section-label">Job Openings</div>
-    <div class="section-title" style="margin-bottom:32px;">募集要項</div>
   </div>
 </section>
 
 <!-- JOBS -->
-<section class="jobs">
-  <div class="jobs-inner">
+<section class="jobs" style="padding-top: 0;">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="label">Job Openings</p>
+      <h2 class="sec-title-en">Openings<span class="accent-dot">.</span></h2>
+      <p class="sec-title-ja">募集要項</p>
+    </div>
 
-    <div class="job-card" id="job1">
+    <div class="job-card reveal" id="job1">
       <div class="job-header" onclick="toggleJob('job1')">
         <div class="job-header-left">
           <span class="job-tag">正社員</span>
@@ -294,7 +163,7 @@
       </div>
     </div>
 
-    <div class="job-card" id="job2">
+    <div class="job-card reveal" id="job2" style="--d:0.1s">
       <div class="job-header" onclick="toggleJob('job2')">
         <div class="job-header-left">
           <span class="job-tag">正社員</span>
@@ -319,121 +188,138 @@
 </section>
 
 <!-- ENTRY FORM -->
-<section class="form-section" id="entryForm">
-  <div class="form-wrap">
-    <div class="section-label">Entry Form</div>
-    <div class="section-title">エントリーフォーム</div>
-    <div class="divider"></div>
+<section class="form-section" id="entryForm" style="padding-top: 0;">
+  <div class="container">
+    <div class="form-wrap">
+      <div class="sec-head reveal">
+        <p class="label">Entry Form</p>
+        <h2 class="sec-title-en">Entry<span class="accent-dot">.</span></h2>
+        <p class="sec-title-ja">エントリーフォーム</p>
+      </div>
 
-    <div id="formArea">
-      <form id="recruitForm" action="https://formspree.io/f/mvzvowka" method="POST" onsubmit="handleSubmit(event)" novalidate>
+      <div id="formArea">
+        <form id="recruitForm" action="https://formspree.io/f/mvzvowka" method="POST" onsubmit="handleSubmit(event)" novalidate>
 
-        <div class="form-row">
+          <div class="form-row">
+            <div class="form-group">
+              <label>お名前 <span class="badge-req">必須</span></label>
+              <input type="text" id="name" name="お名前" placeholder="例：長栄 太郎" required>
+            </div>
+            <div class="form-group">
+              <label>フリガナ <span class="badge-req">必須</span></label>
+              <input type="text" id="kana" name="フリガナ" placeholder="例：チョウエイ タロウ" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>生年月日 <span class="badge-req">必須</span></label>
+              <input type="date" id="birthdate" name="生年月日" required>
+            </div>
+            <div class="form-group">
+              <label>電話番号 <span class="badge-req">必須</span></label>
+              <input type="tel" id="tel" name="電話番号" placeholder="例：090-XXXX-XXXX" required>
+            </div>
+          </div>
+
           <div class="form-group">
-            <label>お名前 <span class="required">必須</span></label>
-            <input type="text" id="name" name="お名前" placeholder="例：長栄 太郎" required>
+            <label>メールアドレス <span class="badge-req">必須</span></label>
+            <input type="email" id="email" name="email" placeholder="例：taro@example.com" required>
           </div>
+
           <div class="form-group">
-            <label>フリガナ <span class="required">必須</span></label>
-            <input type="text" id="kana" name="フリガナ" placeholder="例：チョウエイ タロウ" required>
+            <label>現住所 <span class="badge-req">必須</span></label>
+            <input type="text" id="address" name="現住所" placeholder="例：埼玉県秩父郡長瀞町○○ XX-XX" required>
           </div>
-        </div>
 
-        <div class="form-row">
           <div class="form-group">
-            <label>生年月日 <span class="required">必須</span></label>
-            <input type="date" id="birthdate" name="生年月日" required>
+            <label>希望職種 <span class="badge-req">必須</span></label>
+            <div class="select-wrap">
+              <select id="position" name="希望職種" required>
+                <option value="" disabled selected>選択してください</option>
+                <option value="engineer">土木施工管理技士</option>
+                <option value="operator">重機オペレーター・現場作業員</option>
+                <option value="other">その他（自由記入）</option>
+              </select>
+            </div>
           </div>
+
           <div class="form-group">
-            <label>電話番号 <span class="required">必須</span></label>
-            <input type="tel" id="tel" name="電話番号" placeholder="例：090-XXXX-XXXX" required>
+            <label>経験年数 <span class="badge-req">必須</span></label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="experience" value="none"><span class="radio-dot"></span>未経験</label>
+              <label class="radio-label"><input type="radio" name="experience" value="1-3"><span class="radio-dot"></span>1〜3年</label>
+              <label class="radio-label"><input type="radio" name="experience" value="3-5"><span class="radio-dot"></span>3〜5年</label>
+              <label class="radio-label"><input type="radio" name="experience" value="5-10"><span class="radio-dot"></span>5〜10年</label>
+              <label class="radio-label"><input type="radio" name="experience" value="10+"><span class="radio-dot"></span>10年以上</label>
+            </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label>メールアドレス <span class="required">必須</span></label>
-          <input type="email" id="email" name="email" placeholder="例：taro@example.com" required>
-        </div>
-
-        <div class="form-group">
-          <label>現住所 <span class="required">必須</span></label>
-          <input type="text" id="address" name="現住所" placeholder="例：埼玉県秩父郡長瀞町○○ XX-XX" required>
-        </div>
-
-        <div class="form-group">
-          <label>希望職種 <span class="required">必須</span></label>
-          <div class="select-wrap">
-            <select id="position" name="希望職種" required>
-              <option value="" disabled selected>選択してください</option>
-              <option value="engineer">土木施工管理技士</option>
-              <option value="operator">重機オペレーター・現場作業員</option>
-              <option value="other">その他（自由記入）</option>
-            </select>
+          <div class="form-group">
+            <label>保有資格 <span class="badge-opt">任意</span></label>
+            <input type="text" id="license" name="保有資格" placeholder="例：1級土木施工管理技士、車両系建設機械（整地等）など">
           </div>
-        </div>
 
-        <div class="form-group">
-          <label>経験年数 <span class="required">必須</span></label>
-          <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="experience" value="none"><span class="radio-dot"></span>未経験</label>
-            <label class="radio-label"><input type="radio" name="experience" value="1-3"><span class="radio-dot"></span>1〜3年</label>
-            <label class="radio-label"><input type="radio" name="experience" value="3-5"><span class="radio-dot"></span>3〜5年</label>
-            <label class="radio-label"><input type="radio" name="experience" value="5-10"><span class="radio-dot"></span>5〜10年</label>
-            <label class="radio-label"><input type="radio" name="experience" value="10+"><span class="radio-dot"></span>10年以上</label>
+          <div class="form-group">
+            <label>志望動機・自己PR <span class="badge-req">必須</span></label>
+            <textarea id="motivation" name="志望動機・自己PR" placeholder="志望動機、これまでの経験、意気込みなどをご記入ください。" required></textarea>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label>保有資格 <span class="optional">任意</span></label>
-          <input type="text" id="license" name="保有資格" placeholder="例：1級土木施工管理技士、車両系建設機械（整地等）など">
-        </div>
-
-        <div class="form-group">
-          <label>志望動機・自己PR <span class="required">必須</span></label>
-          <textarea id="motivation" name="志望動機・自己PR" placeholder="志望動機、これまでの経験、意気込みなどをご記入ください。" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>入社希望時期 <span class="optional">任意</span></label>
-          <div class="select-wrap">
-            <select id="startdate" name="入社希望時期">
-              <option value="" disabled selected>選択してください</option>
-              <option value="asap">できるだけ早く</option>
-              <option value="1month">1ヶ月以内</option>
-              <option value="3months">3ヶ月以内</option>
-              <option value="6months">6ヶ月以内</option>
-              <option value="undecided">未定</option>
-            </select>
+          <div class="form-group">
+            <label>入社希望時期 <span class="badge-opt">任意</span></label>
+            <div class="select-wrap">
+              <select id="startdate" name="入社希望時期">
+                <option value="" disabled selected>選択してください</option>
+                <option value="asap">できるだけ早く</option>
+                <option value="1month">1ヶ月以内</option>
+                <option value="3months">3ヶ月以内</option>
+                <option value="6months">6ヶ月以内</option>
+                <option value="undecided">未定</option>
+              </select>
+            </div>
           </div>
-        </div>
 
-        <div class="privacy-box">
-          <h3>個人情報の取り扱いについて</h3>
-          <p>ご入力いただいた個人情報は、採用選考のみを目的として使用いたします。選考終了後は適切に廃棄し、第三者への提供は行いません。</p>
-        </div>
+          <div class="privacy-box">
+            <h3>個人情報の取り扱いについて</h3>
+            <p>ご入力いただいた個人情報は、採用選考のみを目的として使用いたします。選考終了後は適切に廃棄し、第三者への提供は行いません。</p>
+          </div>
 
-        <label class="agree-row" for="agree">
-          <input type="checkbox" id="agree">
-          <span class="custom-check"></span>
-          <span class="agree-label">個人情報の取り扱いに同意する</span>
-        </label>
+          <label class="agree-row" for="agree">
+            <input type="checkbox" id="agree">
+            <span class="custom-check"></span>
+            <span class="agree-label">個人情報の取り扱いに同意する</span>
+          </label>
 
-        <button type="submit" class="submit-btn" id="submitBtn" disabled>エントリーを送信する</button>
-      </form>
-    </div>
+          <button type="submit" class="submit-btn" id="submitBtn" disabled>エントリーを送信する</button>
+        </form>
+      </div>
 
-    <div class="complete-msg" id="completeMsg">
-      <div class="icon">✅</div>
-      <h2>エントリーを受け付けました</h2>
-      <p>ご応募いただきありがとうございます。<br>内容を確認の上、5営業日以内に担当者よりご連絡いたします。<br>しばらくお待ちください。</p>
-      <a href="index.html">トップページに戻る</a>
+      <div class="complete-msg" id="completeMsg">
+        <div class="icon">✅</div>
+        <h2>エントリーを受け付けました</h2>
+        <p>ご応募いただきありがとうございます。<br>内容を確認の上、5営業日以内に担当者よりご連絡いたします。<br>しばらくお待ちください。</p>
+        <a href="index.html" class="btn btn-outline">トップページに戻る</a>
+      </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="footer-logo">長栄建設株式会社<span>CHOEI CONSTRUCTION CO., LTD.</span></div>
-  <div class="footer-copy">© 2025 長栄建設株式会社 All Rights Reserved.</div>
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-brand">CHOEI<br>CONSTRUCTION<em>.</em></p>
+    <div class="footer-mid">
+      <div class="footer-co">長栄建設株式会社<small>Choei Construction Co., Ltd. — Since 1978</small></div>
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <a href="index.html#philosophy">理念</a>
+        <a href="index.html#services">事業内容</a>
+        <a href="index.html#works">施工実績</a>
+        <a href="index.html#company">会社概要</a>
+        <a href="recruit.html">採用情報</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+    <p class="footer-copy">© 2026 CHOEI CONSTRUCTION CO., LTD. ALL RIGHTS RESERVED.</p>
+  </div>
 </footer>
 
 <script>
@@ -497,5 +383,6 @@
     }
   }
 </script>
+<script src="assets/site.js?v=1"></script>
 </body>
 </html>

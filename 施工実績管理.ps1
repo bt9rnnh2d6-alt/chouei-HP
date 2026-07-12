@@ -51,7 +51,8 @@ if ([string]::IsNullOrWhiteSpace($jsonClean)) {
     Read-Host "Enterキーで終了"; exit
 }
 try {
-    $works = @($jsonClean | ConvertFrom-Json)
+    # PowerShell 5.1では配列JSONが1オブジェクトに包まれて返るため、ForEach-Objectで確実に展開する（5.1／7両対応）
+    $works = @($jsonClean | ConvertFrom-Json | ForEach-Object { $_ })
 } catch {
     Write-Host "works.json の読み込みに失敗しました（JSONとして不正です）。処理を中止しました。" -ForegroundColor Red
     Write-Host "ファイルが壊れている可能性があります。復元してから再実行してください。" -ForegroundColor Yellow
@@ -272,8 +273,12 @@ if ($mode -eq "1") {
     }
     $works = @($newEntry) + $works   # 先頭に追加 → サイトの左上に表示される
 
-    # works.json を更新
-    $json = $works | ConvertTo-Json -AsArray -Depth 5
+    # works.json を更新（-AsArrayはPowerShell 7専用のため、5.1でも必ず配列形状になる書き方にする）
+    $json = ConvertTo-Json -InputObject @($works) -Depth 5
+    if ([string]::IsNullOrWhiteSpace($json) -or -not $json.TrimStart().StartsWith('[')) {
+        Write-Host "エラー: works.json の生成に失敗したため中止しました（ファイルは変更されていません）。" -ForegroundColor Red
+        Read-Host "Enterキーで終了"; exit
+    }
     $r1 = Write-FileSafe $jsonPath $json ([System.Text.Encoding]::UTF8)
 
     # index.html を更新
@@ -292,8 +297,12 @@ if ($mode -eq "2") {
         if (Test-Path $imagePath) { Remove-Item $imagePath -Force }
     }
 
-    # works.json を更新
-    $json = $works | ConvertTo-Json -AsArray -Depth 5
+    # works.json を更新（-AsArrayはPowerShell 7専用のため、5.1でも必ず配列形状になる書き方にする）
+    $json = ConvertTo-Json -InputObject @($works) -Depth 5
+    if ([string]::IsNullOrWhiteSpace($json) -or -not $json.TrimStart().StartsWith('[')) {
+        Write-Host "エラー: works.json の生成に失敗したため中止しました（ファイルは変更されていません）。" -ForegroundColor Red
+        Read-Host "Enterキーで終了"; exit
+    }
     $r1 = Write-FileSafe $jsonPath $json ([System.Text.Encoding]::UTF8)
 
     # index.html を更新
