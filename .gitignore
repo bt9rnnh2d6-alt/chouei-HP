@@ -1,2 +1,5 @@
 # ローカル開発ツール設定（公開サイトには不要）
-.claude/
+.claude/*
+# スキル（施工実績の更新手順）はリポジトリで管理する
+!.claude/skills
+!.claude/skills/**
