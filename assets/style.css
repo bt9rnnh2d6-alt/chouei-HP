@@ -438,6 +438,33 @@ section { padding: clamp(80px, 11vw, 160px) 0; }
 .company-table td { padding: 22px 0 22px 28px; font-size: 14.5px; line-height: 2; }
 
 /* =============================================================
+   CERTIFICATIONS（認証・登録ロゴ）
+   ============================================================= */
+.certs { padding-top: 0; }
+.certs-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 1.5vw, 20px);
+}
+.certs-grid-3 { grid-template-columns: repeat(3, 1fr); max-width: 980px; }
+.cert-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: clamp(22px, 2.8vw, 34px) clamp(16px, 2vw, 26px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+  text-align: center;
+}
+.cert-card img { width: 100%; height: clamp(64px, 7vw, 92px); object-fit: contain; }
+.cert-card p { font-size: 12px; font-weight: 700; color: var(--ink-soft); line-height: 1.7; letter-spacing: 0.04em; margin-top: auto; }
+.certs-note { margin-top: clamp(20px, 3vw, 32px); font-size: 12.5px; color: var(--ink-soft); line-height: 2; }
+
+/* =============================================================
    RECRUIT CTA（反転セクション）
    ============================================================= */
 .recruit-sec {
@@ -762,6 +789,7 @@ select option { background: var(--paper); color: var(--ink); }
   .philosophy-grid, .company-grid, .recruit-grid { grid-template-columns: 1fr; }
   .company-grid .sec-head { position: static; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .certs-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 900px) {
@@ -788,6 +816,8 @@ select option { background: var(--paper); color: var(--ink); }
   .detail-table th { width: 104px; font-size: 12px; }
   .detail-table td { padding-left: 14px; font-size: 14px; }
   .hero-scroll { display: none; }
+  .certs-grid, .certs-grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .cert-card p { font-size: 11px; }
 }
 
 /* =============================================================
